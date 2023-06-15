@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ManualC_
 {
@@ -15,6 +16,16 @@ namespace ManualC_
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void ManualList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Search_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
