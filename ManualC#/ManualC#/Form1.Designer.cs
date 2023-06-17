@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ManualList = new System.Windows.Forms.ListBox();
             this.Search = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,26 +74,29 @@
             this.Search.TabIndex = 2;
             this.Search.Text = "Поиск";
             this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(11, 35);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(1023, 629);
-            this.textBox2.TabIndex = 1;
+            this.Search.Enter += new System.EventHandler(this.Search_Enter);
+            this.Search.Leave += new System.EventHandler(this.Search_Leave);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(216, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1046, 673);
             this.panel1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1023, 33);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Title";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -117,15 +120,17 @@
             this.label1.Text = "Manual";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // label3
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1023, 33);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Title";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1040, 625);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "label3";
             // 
             // Form1
             // 
@@ -139,7 +144,6 @@
             this.Name = "Form1";
             this.Text = "C# Manual";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -150,11 +154,11 @@
 
         private System.Windows.Forms.ListBox ManualList;
         private System.Windows.Forms.TextBox Search;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
