@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+<style>
+table, th, td {
+  border:1px solid gray;
+}
+th{
+  width:30px;
+  text-align:right;
+  color: black;
+  background-color:#90EE90;
+}
+td{
+  text-align:left;
+  padding-left: 10px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+.button1:hover{
+  background-color: #4CAF50;
+  color: white;
+}
+
+.tooltip {
+  background-color: white; 
+  border: 2px solid #4CAF50;
+  color: black;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  margin-top: -20px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover {
+  background-color: #4CAF50;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+keyword{
+  background-color:coral;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Массивы</h1> 
+<div class="tooltip">Info
+  <span class="tooltiptext">Санёк гей</span>
+</div>
+
+Массив представляет набор однотипных данных. Объявление массива похоже на объявление переменной за тем исключением, что после указания типа ставятся квадратные скобки:
+
+
+<table style="width:100%">
+  <tr>
+    <th>1</th>
+    <td>тип_переменной[] название_массива;</td>
+  </tr>
+</table>
+
+<br></br>
+Например, определим массив целых чисел:
+
+<table style="width:100%">
+  <tr>
+    <th>1</th>
+    <td>int[] numbers;</td>
+  </tr>
+</table>
+
+<br></br>
+После определения переменной массива мы можем присвоить ей определенное значение:
+
+<table style="width:100%">
+  <tr>
+    <th>1</th>
+    <td>int[] nums = new int[4];</td>
+  </tr>
+</table>
+
+</body>
+</html>

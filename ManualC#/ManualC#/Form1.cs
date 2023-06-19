@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Microsoft.Office.Interop.Word;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ManualC_
@@ -18,7 +21,8 @@ namespace ManualC_
             new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов","повторно" }),
             new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность","произведение" }),
             new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы","многомерные", "двумерные" }),
-            new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean","int", "char" })
+            new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean","int", "char" }),
+            new Chapter("Подпивас", new string[] { })
         };
 
         private void InitTitleList()
@@ -42,7 +46,7 @@ namespace ManualC_
                     output.Add(chapters[i].Name);
                     continue;
                 }
-                for (int j = 0; j < chapters.Length; j++)
+                for (int j = 0; j < chapters[i].Tags.Length; j++)
                 {
                     //if tag similar searchWord
                     if (chapters[i].Tags[j].IndexOf(searchWord, 0, StringComparison.OrdinalIgnoreCase) != -1)
@@ -60,14 +64,45 @@ namespace ManualC_
         {
             InitializeComponent();
             InitTitleList();
+
+            if (File.Exists("E:\\Manual\\ManualC#\\Pages\\Array.html"))
+            {
+                //string text = File.ReadAllText("E:\\Manual\\ManualC#\\Pages\\Array.html");
+                //Guna2Label.Text = text;
+            }
         }
 
         private void ManualList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            switch (ManualList.SelectedItem.ToString())
+            {
+                case "Подпивас":
 
+                    //richTextBox1.LoadFile("E:\\Manual\\ManualC#\\Pages\\Array.rtf", RichTextBoxStreamType.RichText);
+                    break;
+            }
         }
 
         private void Search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Search_Enter(object sender, EventArgs e)
+        {
+            Search.ForeColor = Color.Black;
+            Search.Text = "";
+            InitTitleList();
+        }
+
+        private void Search_Leave(object sender, EventArgs e)
+        {
+            Search.ForeColor = Color.Gray;
+            Search.Text = "Поиск";
+            //InitTitleList();
+        }
+
+        private void Search_KeyPress(object sender, KeyPressEventArgs e)
         {
             InitTitleList();
             List<string> matches = SearchMatch(Search.Text);
@@ -91,20 +126,6 @@ namespace ManualC_
                 }
             }
         }
-
-        private void Search_Enter(object sender, EventArgs e)
-        {
-            Search.ForeColor = Color.Black;
-            Search.Text = "";
-            InitTitleList();
-        }
-
-        private void Search_Leave(object sender, EventArgs e)
-        {
-            Search.ForeColor = Color.Gray;
-            Search.Text = "Поиск";
-            InitTitleList();
-        }
     }
 
     public class Chapter
@@ -116,7 +137,7 @@ namespace ManualC_
         {
             Name = name;
             Tags = new string[tags.Length];
-            Array.Copy(tags, Tags, tags.Length);
+            Array.Copy(tags, Tags, tags.Length);      
         }
     }
 
