@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ManualC_
@@ -27,12 +27,20 @@ namespace ManualC_
 
         private void InitTitleList()
         {
-
-            ManualList.Items.Clear();
             for (int i = 0; i < chapters.Count; i++)
             {
-                ManualList.Items.Add(chapters[i].Name);
+                chapters[i].SetParent(TitleList);
+                chapters[i].SetControl(new TitleButtonPrefab(), webBrowser1);
+                chapters[i].SetLocation(new Point(3, i * 35));
+
+                chapters[i].AddLocation(new Point(0, 3));
             }
+
+            //ManualList.Items.Clear();
+            //for (int i = 0; i < chapters.Count; i++)
+            //{
+            //    ManualList.Items.Add(chapters[i].Name);
+            //}
         }
 
         private List<string> SearchMatch(string searchWord)
@@ -65,11 +73,11 @@ namespace ManualC_
         {
             for (int i = 0; i < chapters.Count; i++)
             {
-                if (ManualList.SelectedItem.ToString() == chapters[i].Name)
-                {
-                    webBrowser1.Navigate(new Uri(chapters[i].PathToFile));
-                    break;
-                }
+                //if (ManualList.SelectedItem.ToString() == chapters[i].Name)
+                //{
+                //    webBrowser1.Navigate(new Uri(chapters[i].PathToFile));
+                //    break;
+                //}
             }
         }
 
@@ -98,30 +106,25 @@ namespace ManualC_
             {
                 List<string> matches = SearchMatch(GunaSearchBar.Text);
 
-                for (int i = 0; i < ManualList.Items.Count; i++)
-                {
-                    bool isHave = false;
-                    for (int j = 0; j < matches.Count; j++)
-                    {
-                        if (ManualList.Items[i].ToString() == matches[j])
-                        {
-                            isHave = true;
-                            break;
-                        }
-                    }
-
-                    if (isHave == false)
-                    {
-                        ManualList.Items.RemoveAt(i);
-                        i--;
-                    }
-                }
+                //for (int i = 0; i < ManualList.Items.Count; i++)
+                //{
+                //    bool isHave = false;
+                //    for (int j = 0; j < matches.Count; j++)
+                //    {
+                //        // if (ManualList.Items[i].ToString() == matches[j])
+                //        // {
+                //        //     isHave = true;
+                //        //     break;
+                //        // }
+                //    }
+                //
+                //    if (isHave == false)
+                //    {
+                //        //ManualList.Items.RemoveAt(i);
+                //        i--;
+                //    }
+                //}
             }
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
@@ -137,7 +140,8 @@ namespace ManualC_
 
         public string PathToFile { get; private set; }
 
-        public Guna2Panel Button;
+        private Control Parent;
+        private TitleButtonPrefab TitlePanel;
 
         public Chapter(string name, string[] tags, string pathToFile)
         {
@@ -147,27 +151,46 @@ namespace ManualC_
 
             PathToFile = pathToFile;
         }
-    }
 
-    public static class ControlExtensions
-    {
-        public static T Clone<T>(this T controlToClone)
-            where T : Control
+        public void SetParent(Control parent)
         {
-            PropertyInfo[] controlProperties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            Parent = parent;
 
-            T instance = Activator.CreateInstance<T>();
-
-            foreach (PropertyInfo propInfo in controlProperties)
+            if (TitlePanel != null)
             {
-                if (propInfo.CanWrite)
-                {
-                    if (propInfo.Name != "WindowTarget")
-                        propInfo.SetValue(instance, propInfo.GetValue(controlToClone, null), null);
-                }
+                parent.Controls.Add(TitlePanel);
             }
+        }
 
-            return instance;
+        public void SetControl(TitleButtonPrefab titlePanel, WebBrowser browser)
+        {
+            TitlePanel = titlePanel;
+
+            TitlePanel.Browser = browser;
+            TitlePanel.path = PathToFile;
+
+            var aoControls = TitlePanel.Controls.Find("GunaTitleButton", true);
+            if ((aoControls != null) && (aoControls.Length != 0))
+            {
+                Control foundControl = aoControls[0];
+                foundControl.Text = Name;
+            }
+        }
+
+        public void SetLocation(Point newLoc)
+        {
+            if (TitlePanel != null)
+            {
+                TitlePanel.Location = newLoc;
+            }
+        }
+
+        public void AddLocation(Point newLoc)
+        {
+            if (TitlePanel != null)
+            {
+                TitlePanel.Location = new Point(TitlePanel.Location.X + newLoc.X, TitlePanel.Location.Y + newLoc.Y);
+            }
         }
     }
 }
