@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ManualC_
@@ -14,7 +11,7 @@ namespace ManualC_
         [STAThread]
         static void Main()
         {
-            if(Environment.OSVersion.Version.Major >= 6)
+            if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
 
             Application.EnableVisualStyles();

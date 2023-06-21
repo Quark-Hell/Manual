@@ -1,34 +1,35 @@
 ﻿using Guna.UI2.WinForms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
-using System.IO;
-using Microsoft.Office.Interop.Word;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ManualC_
 {
     public partial class Form1 : Form
     {
-        Chapter[] chapters = { 
-            new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов","повторно" }),
-            new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность","произведение" }),
-            new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы","многомерные", "двумерные" }),
-            new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean","int", "char" }),
-            new Chapter("Подпивас", new string[] { })
-        };
+        List<Chapter> chapters = new List<Chapter>();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            string pagesPath = AppDomain.CurrentDomain.BaseDirectory + "Pages";
+
+            chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность", "произведение" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы", "многомерные", "двумерные" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+
+            InitTitleList();
+        }
 
         private void InitTitleList()
         {
+
             ManualList.Items.Clear();
-            for (int i = 0; i < chapters.Length; i++)
+            for (int i = 0; i < chapters.Count; i++)
             {
                 ManualList.Items.Add(chapters[i].Name);
             }
@@ -38,10 +39,10 @@ namespace ManualC_
         {
             List<string> output = new List<string>();
 
-            for (int i = 0; i < chapters.Length; i++)
+            for (int i = 0; i < chapters.Count; i++)
             {
                 //if name similar searchWord
-                if (chapters[i].Name.IndexOf(searchWord,0,StringComparison.OrdinalIgnoreCase) != -1)
+                if (chapters[i].Name.IndexOf(searchWord, 0, StringComparison.OrdinalIgnoreCase) != -1)
                 {
                     output.Add(chapters[i].Name);
                     continue;
@@ -60,71 +61,72 @@ namespace ManualC_
             return output;
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-            InitTitleList();
-
-            if (File.Exists("E:\\Manual\\ManualC#\\Pages\\Array.html"))
-            {
-                //string text = File.ReadAllText("E:\\Manual\\ManualC#\\Pages\\Array.html");
-                //Guna2Label.Text = text;
-            }
-        }
-
         private void ManualList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (ManualList.SelectedItem.ToString())
+            for (int i = 0; i < chapters.Count; i++)
             {
-                case "Подпивас":
-
-                    //richTextBox1.LoadFile("E:\\Manual\\ManualC#\\Pages\\Array.rtf", RichTextBoxStreamType.RichText);
+                if (ManualList.SelectedItem.ToString() == chapters[i].Name)
+                {
+                    webBrowser1.Navigate(new Uri(chapters[i].PathToFile));
                     break;
+                }
             }
         }
 
-        private void Search_TextChanged(object sender, EventArgs e)
+        private void GunaSearchBar_Leave(object sender, EventArgs e)
         {
-
-        }
-
-        private void Search_Enter(object sender, EventArgs e)
-        {
-            Search.ForeColor = Color.Black;
-            Search.Text = "";
-            InitTitleList();
-        }
-
-        private void Search_Leave(object sender, EventArgs e)
-        {
-            Search.ForeColor = Color.Gray;
-            Search.Text = "Поиск";
-            //InitTitleList();
-        }
-
-        private void Search_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InitTitleList();
-            List<string> matches = SearchMatch(Search.Text);
-
-            for (int i = 0; i < ManualList.Items.Count; i++)
+            if (GunaSearchBar.Text == "")
             {
-                bool isHave = false;
-                for (int j = 0; j < matches.Count; j++)
+                GunaSearchBar.ForeColor = Color.Gray;
+                GunaSearchBar.Text = "Поиск";
+
+                InitTitleList();
+            }
+        }
+
+        private void GunaSearchBar_Enter(object sender, EventArgs e)
+        {
+            GunaSearchBar.ForeColor = Color.Black;
+            GunaSearchBar.Text = "";
+            InitTitleList();
+        }
+
+        private void GunaSearchBar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InitTitleList();
+            if (GunaSearchBar.Text != "")
+            {
+                List<string> matches = SearchMatch(GunaSearchBar.Text);
+
+                for (int i = 0; i < ManualList.Items.Count; i++)
                 {
-                    if (ManualList.Items[i].ToString() == matches[j])
+                    bool isHave = false;
+                    for (int j = 0; j < matches.Count; j++)
                     {
-                        isHave = true;
-                        break;
+                        if (ManualList.Items[i].ToString() == matches[j])
+                        {
+                            isHave = true;
+                            break;
+                        }
+                    }
+
+                    if (isHave == false)
+                    {
+                        ManualList.Items.RemoveAt(i);
+                        i--;
                     }
                 }
-
-                if (isHave == false)
-                {
-                    ManualList.Items.RemoveAt(i);
-                    i--;
-                }
             }
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -133,16 +135,39 @@ namespace ManualC_
         public string Name { get; private set; }
         public string[] Tags;
 
-        public Chapter(string name, string[] tags = default)
+        public string PathToFile { get; private set; }
+
+        public Guna2Panel Button;
+
+        public Chapter(string name, string[] tags, string pathToFile)
         {
             Name = name;
             Tags = new string[tags.Length];
-            Array.Copy(tags, Tags, tags.Length);      
+            Array.Copy(tags, Tags, tags.Length);
+
+            PathToFile = pathToFile;
         }
     }
 
-    public class Search
+    public static class ControlExtensions
     {
+        public static T Clone<T>(this T controlToClone)
+            where T : Control
+        {
+            PropertyInfo[] controlProperties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
+            T instance = Activator.CreateInstance<T>();
+
+            foreach (PropertyInfo propInfo in controlProperties)
+            {
+                if (propInfo.CanWrite)
+                {
+                    if (propInfo.Name != "WindowTarget")
+                        propInfo.SetValue(instance, propInfo.GetValue(controlToClone, null), null);
+                }
+            }
+
+            return instance;
+        }
     }
 }
