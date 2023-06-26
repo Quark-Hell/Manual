@@ -15,12 +15,25 @@ namespace ManualC_
         public WebBrowser Browser;
         public string path;
 
+        public string Text { get; private set; }
+
         public TitleButtonPrefab()
         {
             InitializeComponent();
+
+            this.SetStyle(
+                ControlStyles.UserPaint |
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.DoubleBuffer, true);
         }
 
-        private void GunaTitleButton_MouseClick(object sender, MouseEventArgs e)
+        public void SetText(string text)
+        {
+            Text = text;
+            GunaTitleButton.Text = text;
+        }
+
+        private void GunaTitleButton_Click(object sender, EventArgs e)
         {
             Browser.Navigate(new Uri(path));
         }

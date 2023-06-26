@@ -14,33 +14,64 @@ namespace ManualC_
         public Form1()
         {
             InitializeComponent();
+        }
 
+        protected override void OnLoad(EventArgs e)
+        {
             string pagesPath = AppDomain.CurrentDomain.BaseDirectory + "Pages";
 
             chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "\\Array.html"));
             chapters.Add(new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность", "произведение" }, pagesPath + "\\Array.html"));
             chapters.Add(new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы", "многомерные", "двумерные" }, pagesPath + "\\Array.html"));
             chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
+            chapters.Add(new Chapter("Библиотечные классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "\\Array.html"));
 
-            InitTitleList();
+            InitScrollBar();
+            qvScrollBar1.SetScrollbarParameters();
+
+            this.SetStyle(
+                ControlStyles.UserPaint |
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.DoubleBuffer, true);
+
+            SetDoubleBuffered(TitleList);
+
+            base.OnLoad(e);
         }
 
-        private void InitTitleList()
+        private void InitScrollBar()
         {
             for (int i = 0; i < chapters.Count; i++)
             {
-                chapters[i].SetParent(TitleList);
-                chapters[i].SetControl(new TitleButtonPrefab(), webBrowser1);
-                chapters[i].SetLocation(new Point(3, i * 35));
+                TitleButtonPrefab button = new TitleButtonPrefab();
+                button.Location = new Point(3, button.Location.Y);
+                button.SetText(chapters[i].Name);
 
-                chapters[i].AddLocation(new Point(0, 3));
+                qvScrollBar1.AddControl(button);
             }
+        }
 
-            //ManualList.Items.Clear();
-            //for (int i = 0; i < chapters.Count; i++)
-            //{
-            //    ManualList.Items.Add(chapters[i].Name);
-            //}
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            //Taxes: Remote Desktop Connection and painting
+            //http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+
+            System.Reflection.PropertyInfo aProp =
+                  typeof(System.Windows.Forms.Control).GetProperty(
+                        "DoubleBuffered",
+                        System.Reflection.BindingFlags.NonPublic |
+                        System.Reflection.BindingFlags.Instance);
+
+            aProp.SetValue(c, true, null);
         }
 
         private List<string> SearchMatch(string searchWord)
@@ -87,8 +118,6 @@ namespace ManualC_
             {
                 GunaSearchBar.ForeColor = Color.Gray;
                 GunaSearchBar.Text = "Поиск";
-
-                InitTitleList();
             }
         }
 
@@ -96,40 +125,52 @@ namespace ManualC_
         {
             GunaSearchBar.ForeColor = Color.Black;
             GunaSearchBar.Text = "";
-            InitTitleList();
         }
 
-        private void GunaSearchBar_KeyPress(object sender, KeyPressEventArgs e)
+        private void GunaSearchBar_TextChanged(object sender, EventArgs e)
         {
-            InitTitleList();
+
+        }
+
+        private void GunaSearchBar_KeyUp(object sender, KeyEventArgs e)
+        {
             if (GunaSearchBar.Text != "")
             {
+                qvScrollBar1.ClearContent();
+
                 List<string> matches = SearchMatch(GunaSearchBar.Text);
 
-                //for (int i = 0; i < ManualList.Items.Count; i++)
-                //{
-                //    bool isHave = false;
-                //    for (int j = 0; j < matches.Count; j++)
-                //    {
-                //        // if (ManualList.Items[i].ToString() == matches[j])
-                //        // {
-                //        //     isHave = true;
-                //        //     break;
-                //        // }
-                //    }
-                //
-                //    if (isHave == false)
-                //    {
-                //        //ManualList.Items.RemoveAt(i);
-                //        i--;
-                //    }
-                //}
+                for (int i = 0; i < chapters.Count; i++)
+                {
+                    bool isHave = false;
+                    for (int j = 0; j < matches.Count; j++)
+                    {
+                        if (chapters[i].Name == matches[j])
+                        {
+                            isHave = true;
+                            break;
+                        }
+                    }
+
+                    if (isHave == true)
+                    {
+                        TitleButtonPrefab button = new TitleButtonPrefab();
+                        button.Location = new Point(3, button.Location.Y);
+                        button.SetText(chapters[i].Name);
+
+                        qvScrollBar1.AddControl(button);
+                    }
+                }
+
+                qvScrollBar1.ReInitContent();
+                qvScrollBar1.SetScrollbarParameters();
             }
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                qvScrollBar1.ClearContent();
+                InitScrollBar();
+                qvScrollBar1.SetScrollbarParameters();
+            }
         }
     }
 
@@ -140,57 +181,15 @@ namespace ManualC_
 
         public string PathToFile { get; private set; }
 
-        private Control Parent;
-        private TitleButtonPrefab TitlePanel;
+        public TitleButtonPrefab TitlePanel { get; private set; }
 
         public Chapter(string name, string[] tags, string pathToFile)
         {
             Name = name;
             Tags = new string[tags.Length];
             Array.Copy(tags, Tags, tags.Length);
-
+            TitlePanel = new TitleButtonPrefab();
             PathToFile = pathToFile;
-        }
-
-        public void SetParent(Control parent)
-        {
-            Parent = parent;
-
-            if (TitlePanel != null)
-            {
-                parent.Controls.Add(TitlePanel);
-            }
-        }
-
-        public void SetControl(TitleButtonPrefab titlePanel, WebBrowser browser)
-        {
-            TitlePanel = titlePanel;
-
-            TitlePanel.Browser = browser;
-            TitlePanel.path = PathToFile;
-
-            var aoControls = TitlePanel.Controls.Find("GunaTitleButton", true);
-            if ((aoControls != null) && (aoControls.Length != 0))
-            {
-                Control foundControl = aoControls[0];
-                foundControl.Text = Name;
-            }
-        }
-
-        public void SetLocation(Point newLoc)
-        {
-            if (TitlePanel != null)
-            {
-                TitlePanel.Location = newLoc;
-            }
-        }
-
-        public void AddLocation(Point newLoc)
-        {
-            if (TitlePanel != null)
-            {
-                TitlePanel.Location = new Point(TitlePanel.Location.X + newLoc.X, TitlePanel.Location.Y + newLoc.Y);
-            }
         }
     }
 }

@@ -30,18 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.guna2VScrollBar2 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.TitleList = new Guna.UI2.WinForms.Guna2Panel();
+            this.qvScrollBar1 = new ManualC_.QVScrollBar();
             this.GunaSearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaWebPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel2.SuspendLayout();
+            this.TitleList.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.GunaWebPanel.SuspendLayout();
@@ -51,7 +52,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Controls.Add(this.guna2VScrollBar2);
             this.panel2.Controls.Add(this.TitleList);
             this.panel2.Controls.Add(this.GunaSearchBar);
             this.panel2.Controls.Add(this.label1);
@@ -61,45 +61,31 @@
             this.panel2.Size = new System.Drawing.Size(212, 673);
             this.panel2.TabIndex = 2;
             // 
-            // guna2VScrollBar2
-            // 
-            this.guna2VScrollBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2VScrollBar2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar2.BindingContainer = this.TitleList;
-            this.guna2VScrollBar2.BorderColor = System.Drawing.Color.Black;
-            this.guna2VScrollBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2VScrollBar2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2VScrollBar2.FillColor = System.Drawing.Color.White;
-            this.guna2VScrollBar2.HighlightOnWheel = true;
-            this.guna2VScrollBar2.InUpdate = false;
-            this.guna2VScrollBar2.LargeChange = 10;
-            this.guna2VScrollBar2.Location = new System.Drawing.Point(185, 55);
-            this.guna2VScrollBar2.Name = "guna2VScrollBar2";
-            this.guna2VScrollBar2.PressedState.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(73)))), ((int)(((byte)(70)))));
-            this.guna2VScrollBar2.ScrollbarSize = 19;
-            this.guna2VScrollBar2.Size = new System.Drawing.Size(21, 560);
-            this.guna2VScrollBar2.TabIndex = 11;
-            this.guna2VScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(92)))));
-            this.guna2VScrollBar2.ThumbSize = 15F;
-            this.guna2VScrollBar2.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
-            // 
             // TitleList
             // 
-            this.TitleList.AutoScroll = true;
             this.TitleList.BackColor = System.Drawing.Color.Transparent;
             this.TitleList.BorderColor = System.Drawing.Color.Black;
-            this.TitleList.BorderThickness = 1;
-            this.TitleList.Location = new System.Drawing.Point(3, 55);
+            this.TitleList.Controls.Add(this.qvScrollBar1);
+            this.TitleList.Location = new System.Drawing.Point(3, 54);
             this.TitleList.Name = "TitleList";
             this.TitleList.ShadowDecoration.Depth = 15;
             this.TitleList.ShadowDecoration.Enabled = true;
-            this.TitleList.Size = new System.Drawing.Size(203, 560);
+            this.TitleList.Size = new System.Drawing.Size(203, 319);
             this.TitleList.TabIndex = 10;
+            // 
+            // qvScrollBar1
+            // 
+            this.qvScrollBar1.BackColor = System.Drawing.Color.Transparent;
+            this.qvScrollBar1.ContentContainer = this.TitleList;
+            this.qvScrollBar1.Location = new System.Drawing.Point(183, 3);
+            this.qvScrollBar1.Name = "qvScrollBar1";
+            this.qvScrollBar1.Size = new System.Drawing.Size(17, 313);
+            this.qvScrollBar1.TabIndex = 0;
             // 
             // GunaSearchBar
             // 
             this.GunaSearchBar.BorderColor = System.Drawing.Color.Silver;
-            this.GunaSearchBar.BorderRadius = 15;
+            this.GunaSearchBar.BorderRadius = 10;
             this.GunaSearchBar.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.GunaSearchBar.DefaultText = "Поиск";
             this.GunaSearchBar.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -120,8 +106,9 @@
             this.GunaSearchBar.SelectedText = "";
             this.GunaSearchBar.Size = new System.Drawing.Size(203, 47);
             this.GunaSearchBar.TabIndex = 9;
+            this.GunaSearchBar.TextChanged += new System.EventHandler(this.GunaSearchBar_TextChanged);
             this.GunaSearchBar.Enter += new System.EventHandler(this.GunaSearchBar_Enter);
-            this.GunaSearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GunaSearchBar_KeyPress);
+            this.GunaSearchBar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GunaSearchBar_KeyUp);
             this.GunaSearchBar.Leave += new System.EventHandler(this.GunaSearchBar_Leave);
             // 
             // label1
@@ -151,10 +138,48 @@
             this.guna2Panel1.Controls.Add(this.guna2ImageButton2);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton1);
             this.guna2Panel1.Controls.Add(this.guna2ImageButton3);
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1043, 50);
+            this.guna2Panel1.Size = new System.Drawing.Size(1043, 53);
             this.guna2Panel1.TabIndex = 7;
+            // 
+            // guna2ImageButton2
+            // 
+            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton2.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
+            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton2.ImageRotate = 0F;
+            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton2.Location = new System.Drawing.Point(950, 5);
+            this.guna2ImageButton2.Name = "guna2ImageButton2";
+            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 2;
+            this.guna2ImageButton2.ShadowDecoration.Depth = 15;
+            this.guna2ImageButton2.Size = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton2.TabIndex = 26;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(997, 5);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 2;
+            this.guna2ImageButton1.ShadowDecoration.Depth = 15;
+            this.guna2ImageButton1.Size = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton1.TabIndex = 25;
             // 
             // guna2ImageButton3
             // 
@@ -185,7 +210,7 @@
             this.GunaWebPanel.Name = "GunaWebPanel";
             this.GunaWebPanel.ShadowColor = System.Drawing.Color.Black;
             this.GunaWebPanel.ShadowShift = 0;
-            this.GunaWebPanel.Size = new System.Drawing.Size(1040, 616);
+            this.GunaWebPanel.Size = new System.Drawing.Size(1043, 616);
             this.GunaWebPanel.TabIndex = 9;
             // 
             // webBrowser1
@@ -194,47 +219,9 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1038, 614);
+            this.webBrowser1.Size = new System.Drawing.Size(1041, 614);
             this.webBrowser1.TabIndex = 6;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(997, 5);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 2;
-            this.guna2ImageButton1.ShadowDecoration.Depth = 15;
-            this.guna2ImageButton1.Size = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.TabIndex = 25;
-            // 
-            // guna2ImageButton2
-            // 
-            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton2.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(950, 5);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 2;
-            this.guna2ImageButton2.ShadowDecoration.Depth = 15;
-            this.guna2ImageButton2.Size = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.TabIndex = 26;
             // 
             // Form1
             // 
@@ -244,10 +231,12 @@
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "C# Manual";
             this.panel2.ResumeLayout(false);
+            this.TitleList.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.GunaWebPanel.ResumeLayout(false);
@@ -264,10 +253,10 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2TextBox GunaSearchBar;
-        private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar2;
         private Guna.UI2.WinForms.Guna2Panel TitleList;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private QVScrollBar qvScrollBar1;
     }
 }
 
