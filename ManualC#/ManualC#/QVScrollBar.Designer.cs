@@ -38,6 +38,7 @@
             this.Toggle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Toggle.BackColor = System.Drawing.Color.Transparent;
+            this.Toggle.BorderRadius = 5;
             this.Toggle.CustomBorderColor = System.Drawing.Color.Transparent;
             this.Toggle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Toggle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -61,7 +62,7 @@
             // 
             this.Panel.BackColor = System.Drawing.Color.Transparent;
             this.Panel.BorderColor = System.Drawing.Color.Black;
-            this.Panel.BorderRadius = 2;
+            this.Panel.BorderRadius = 5;
             this.Panel.Controls.Add(this.Toggle);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.FillColor = System.Drawing.Color.Gainsboro;

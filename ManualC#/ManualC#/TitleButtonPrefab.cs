@@ -13,11 +13,11 @@ namespace ManualC_
     public partial class TitleButtonPrefab : UserControl
     {
         public WebBrowser Browser;
-        public string path;
+        public string Path;
 
         public string Text { get; private set; }
 
-        public TitleButtonPrefab()
+        public TitleButtonPrefab(WebBrowser browser, string path)
         {
             InitializeComponent();
 
@@ -25,6 +25,9 @@ namespace ManualC_
                 ControlStyles.UserPaint |
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.DoubleBuffer, true);
+
+            Browser = browser;
+            Path = path;
         }
 
         public void SetText(string text)
@@ -35,7 +38,7 @@ namespace ManualC_
 
         private void GunaTitleButton_Click(object sender, EventArgs e)
         {
-            Browser.Navigate(new Uri(path));
+            Browser.Navigate(new Uri(Path));
         }
     }
 }
