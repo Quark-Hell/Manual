@@ -34,6 +34,7 @@
             // GunaTitleButton
             // 
             this.GunaTitleButton.BorderRadius = 3;
+            this.GunaTitleButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GunaTitleButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.GunaTitleButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.GunaTitleButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

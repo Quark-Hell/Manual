@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,12 @@ namespace ManualC_
 {
     public partial class TitleButtonPrefab : UserControl
     {
-        public WebBrowser Browser;
+        public Guna2HtmlLabel Label;
         public string Path;
 
         public string Text { get; private set; }
 
-        public TitleButtonPrefab(WebBrowser browser, string path)
+        public TitleButtonPrefab(Guna2HtmlLabel label, string path)
         {
             InitializeComponent();
 
@@ -26,7 +27,7 @@ namespace ManualC_
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.DoubleBuffer, true);
 
-            Browser = browser;
+            Label = label;
             Path = path;
         }
 
@@ -38,7 +39,7 @@ namespace ManualC_
 
         private void GunaTitleButton_Click(object sender, EventArgs e)
         {
-            Browser.Navigate(new Uri(Path));
+            //Browser.Navigate(new Uri(Path));
         }
     }
 }
