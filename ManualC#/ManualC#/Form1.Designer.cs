@@ -30,59 +30,72 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.TitleList = new Guna.UI2.WinForms.Guna2Panel();
+            this.GunaTitleList = new Guna.UI2.WinForms.Guna2Panel();
+            this.TitleListScrollbar = new ManualC_.QVScrollBar();
             this.GunaSearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.GunaInfoLabelPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.InfoLabelScrollbar = new ManualC_.QVScrollBar();
             this.GunaInfoLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.GunaLoginMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.GunaRegistationMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.GunaErrorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.GunaCreateLogin = new Guna.UI2.WinForms.Guna2TextBox();
-            this.GunaCreateAccountButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.GunaCreatePassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.GunaBackToAuthorizationButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.GunaAuthorizationMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.GunaPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.GunaLogin = new Guna.UI2.WinForms.Guna2TextBox();
+            this.GunaErrorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.GunaAuthorizationMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.GunaLoginButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaLoginLabel = new System.Windows.Forms.Label();
-            this.GunaPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.GunaAddUserButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.GunaRegistationMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.GunaCreateAccountButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.GunaBackToAuthorizationButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.GunaUpPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.GunaLogoutButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaWindowScaleButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.GunaHideButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaCloseButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.GunaPreviousButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.GunaNextButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaFavoriteButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.LeftBar = new Guna.UI2.WinForms.Guna2Panel();
             this.GunaColorTransition = new Guna.UI2.WinForms.Guna2ColorTransition(this.components);
-            this.qvScrollBar1 = new ManualC_.QVScrollBar();
-            this.TitleList.SuspendLayout();
+            this.GunaTitleList.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            this.GunaInfoLabelPanel.SuspendLayout();
             this.GunaLoginMenu.SuspendLayout();
-            this.GunaRegistationMenu.SuspendLayout();
             this.GunaAuthorizationMenu.SuspendLayout();
+            this.GunaRegistationMenu.SuspendLayout();
             this.GunaUpPanel.SuspendLayout();
             this.LeftBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TitleList
+            // GunaTitleList
             // 
-            this.TitleList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GunaTitleList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TitleList.BackColor = System.Drawing.Color.Transparent;
-            this.TitleList.BorderColor = System.Drawing.Color.Black;
-            this.TitleList.Controls.Add(this.qvScrollBar1);
-            this.TitleList.Location = new System.Drawing.Point(3, 52);
-            this.TitleList.Name = "TitleList";
-            this.TitleList.ShadowDecoration.Depth = 15;
-            this.TitleList.ShadowDecoration.Enabled = true;
-            this.TitleList.Size = new System.Drawing.Size(203, 563);
-            this.TitleList.TabIndex = 10;
+            this.GunaTitleList.BackColor = System.Drawing.Color.Transparent;
+            this.GunaTitleList.BorderColor = System.Drawing.Color.Black;
+            this.GunaTitleList.Controls.Add(this.TitleListScrollbar);
+            this.GunaTitleList.Location = new System.Drawing.Point(3, 52);
+            this.GunaTitleList.Name = "GunaTitleList";
+            this.GunaTitleList.ShadowDecoration.Depth = 15;
+            this.GunaTitleList.ShadowDecoration.Enabled = true;
+            this.GunaTitleList.Size = new System.Drawing.Size(203, 563);
+            this.GunaTitleList.TabIndex = 10;
+            // 
+            // TitleListScrollbar
+            // 
+            this.TitleListScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TitleListScrollbar.BackColor = System.Drawing.Color.Transparent;
+            this.TitleListScrollbar.ContentContainer = this.GunaTitleList;
+            this.TitleListScrollbar.Location = new System.Drawing.Point(183, 3);
+            this.TitleListScrollbar.Name = "TitleListScrollbar";
+            this.TitleListScrollbar.Size = new System.Drawing.Size(17, 557);
+            this.TitleListScrollbar.TabIndex = 0;
             // 
             // GunaSearchBar
             // 
@@ -95,6 +108,7 @@
             this.GunaSearchBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.GunaSearchBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.GunaSearchBar.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.GunaSearchBar.Enabled = false;
             this.GunaSearchBar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.GunaSearchBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.GunaSearchBar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -130,9 +144,10 @@
             this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientPanel1.AutoScroll = true;
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.BorderRadius = 5;
-            this.guna2GradientPanel1.Controls.Add(this.GunaInfoLabel);
+            this.guna2GradientPanel1.Controls.Add(this.GunaInfoLabelPanel);
             this.guna2GradientPanel1.Controls.Add(this.GunaLoginMenu);
             this.guna2GradientPanel1.Controls.Add(this.guna2DateTimePicker1);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(49)))));
@@ -145,29 +160,59 @@
             this.guna2GradientPanel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1046, 621);
             this.guna2GradientPanel1.TabIndex = 10;
+            this.guna2GradientPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2GradientPanel1_Scroll);
+            // 
+            // GunaInfoLabelPanel
+            // 
+            this.GunaInfoLabelPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GunaInfoLabelPanel.Controls.Add(this.InfoLabelScrollbar);
+            this.GunaInfoLabelPanel.Controls.Add(this.GunaInfoLabel);
+            this.GunaInfoLabelPanel.Location = new System.Drawing.Point(0, 0);
+            this.GunaInfoLabelPanel.Name = "GunaInfoLabelPanel";
+            this.GunaInfoLabelPanel.Size = new System.Drawing.Size(1046, 621);
+            this.GunaInfoLabelPanel.TabIndex = 5;
+            this.GunaInfoLabelPanel.Visible = false;
+            // 
+            // InfoLabelScrollbar
+            // 
+            this.InfoLabelScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoLabelScrollbar.BackColor = System.Drawing.Color.Transparent;
+            this.InfoLabelScrollbar.ContentContainer = this.GunaInfoLabelPanel;
+            this.InfoLabelScrollbar.Location = new System.Drawing.Point(1029, 3);
+            this.InfoLabelScrollbar.Name = "InfoLabelScrollbar";
+            this.InfoLabelScrollbar.Size = new System.Drawing.Size(17, 615);
+            this.InfoLabelScrollbar.TabIndex = 4;
             // 
             // GunaInfoLabel
             // 
+            this.GunaInfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GunaInfoLabel.AutoSize = false;
+            this.GunaInfoLabel.AutoSizeHeightOnly = true;
             this.GunaInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.GunaInfoLabel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GunaInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.GunaInfoLabel.Location = new System.Drawing.Point(630, 559);
+            this.GunaInfoLabel.Location = new System.Drawing.Point(3, 3);
             this.GunaInfoLabel.Name = "GunaInfoLabel";
-            this.GunaInfoLabel.Size = new System.Drawing.Size(269, 62);
+            this.GunaInfoLabel.Size = new System.Drawing.Size(1030, 728);
             this.GunaInfoLabel.TabIndex = 3;
             this.GunaInfoLabel.Text = resources.GetString("GunaInfoLabel.Text");
-            this.GunaInfoLabel.Visible = false;
             // 
             // GunaLoginMenu
             // 
-            this.GunaLoginMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GunaLoginMenu.BackColor = System.Drawing.Color.Transparent;
             this.GunaLoginMenu.BorderRadius = 5;
+            this.GunaLoginMenu.Controls.Add(this.GunaPassword);
+            this.GunaLoginMenu.Controls.Add(this.GunaLogin);
+            this.GunaLoginMenu.Controls.Add(this.GunaErrorLabel);
             this.GunaLoginMenu.Controls.Add(this.GunaAuthorizationMenu);
             this.GunaLoginMenu.Controls.Add(this.GunaRegistationMenu);
             this.GunaLoginMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
-            this.GunaLoginMenu.Location = new System.Drawing.Point(377, 207);
+            this.GunaLoginMenu.Location = new System.Drawing.Point(362, 243);
             this.GunaLoginMenu.Name = "GunaLoginMenu";
             this.GunaLoginMenu.ShadowDecoration.BorderRadius = 3;
             this.GunaLoginMenu.ShadowDecoration.Enabled = true;
@@ -175,19 +220,56 @@
             this.GunaLoginMenu.Size = new System.Drawing.Size(308, 198);
             this.GunaLoginMenu.TabIndex = 2;
             // 
-            // GunaRegistationMenu
+            // GunaPassword
             // 
-            this.GunaRegistationMenu.Controls.Add(this.GunaErrorLabel);
-            this.GunaRegistationMenu.Controls.Add(this.GunaCreateLogin);
-            this.GunaRegistationMenu.Controls.Add(this.GunaCreateAccountButton);
-            this.GunaRegistationMenu.Controls.Add(this.label2);
-            this.GunaRegistationMenu.Controls.Add(this.GunaCreatePassword);
-            this.GunaRegistationMenu.Controls.Add(this.GunaBackToAuthorizationButton);
-            this.GunaRegistationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GunaRegistationMenu.Location = new System.Drawing.Point(0, 0);
-            this.GunaRegistationMenu.Name = "GunaRegistationMenu";
-            this.GunaRegistationMenu.Size = new System.Drawing.Size(308, 198);
-            this.GunaRegistationMenu.TabIndex = 12;
+            this.GunaPassword.BorderRadius = 5;
+            this.GunaPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.GunaPassword.DefaultText = "Пароль";
+            this.GunaPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.GunaPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.GunaPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.GunaPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.GunaPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.GunaPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GunaPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.GunaPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaPassword.IconLeft")));
+            this.GunaPassword.Location = new System.Drawing.Point(3, 98);
+            this.GunaPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GunaPassword.MaxLength = 12;
+            this.GunaPassword.Name = "GunaPassword";
+            this.GunaPassword.PasswordChar = '\0';
+            this.GunaPassword.PlaceholderText = "";
+            this.GunaPassword.SelectedText = "";
+            this.GunaPassword.Size = new System.Drawing.Size(301, 36);
+            this.GunaPassword.TabIndex = 6;
+            this.GunaPassword.Enter += new System.EventHandler(this.GunaPassword_Enter);
+            this.GunaPassword.Leave += new System.EventHandler(this.GunaPassword_Leave);
+            // 
+            // GunaLogin
+            // 
+            this.GunaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.GunaLogin.BorderRadius = 5;
+            this.GunaLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.GunaLogin.DefaultText = "Логин";
+            this.GunaLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.GunaLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.GunaLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.GunaLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.GunaLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.GunaLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GunaLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.GunaLogin.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaLogin.IconLeft")));
+            this.GunaLogin.Location = new System.Drawing.Point(3, 54);
+            this.GunaLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GunaLogin.MaxLength = 12;
+            this.GunaLogin.Name = "GunaLogin";
+            this.GunaLogin.PasswordChar = '\0';
+            this.GunaLogin.PlaceholderText = "";
+            this.GunaLogin.SelectedText = "";
+            this.GunaLogin.Size = new System.Drawing.Size(301, 36);
+            this.GunaLogin.TabIndex = 1;
+            this.GunaLogin.Enter += new System.EventHandler(this.GunaLogin_Enter);
+            this.GunaLogin.Leave += new System.EventHandler(this.GunaLogin_Leave);
             // 
             // GunaErrorLabel
             // 
@@ -195,38 +277,82 @@
             this.GunaErrorLabel.BackColor = System.Drawing.Color.Transparent;
             this.GunaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GunaErrorLabel.ForeColor = System.Drawing.Color.White;
-            this.GunaErrorLabel.Location = new System.Drawing.Point(61, 150);
+            this.GunaErrorLabel.Location = new System.Drawing.Point(61, 151);
             this.GunaErrorLabel.Name = "GunaErrorLabel";
-            this.GunaErrorLabel.Size = new System.Drawing.Size(172, 43);
+            this.GunaErrorLabel.Size = new System.Drawing.Size(185, 44);
             this.GunaErrorLabel.TabIndex = 12;
             this.GunaErrorLabel.Text = "Такой аккаунт уже существует <img src=\"warning.png\" width=\"20\" height=\"20\">\r\n";
             this.GunaErrorLabel.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.GunaErrorLabel.Visible = false;
             // 
-            // GunaCreateLogin
+            // GunaAuthorizationMenu
             // 
-            this.GunaCreateLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.GunaCreateLogin.BorderRadius = 5;
-            this.GunaCreateLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.GunaCreateLogin.DefaultText = "Логин";
-            this.GunaCreateLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.GunaCreateLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.GunaCreateLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaCreateLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaCreateLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaCreateLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GunaCreateLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaCreateLogin.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaCreateLogin.IconLeft")));
-            this.GunaCreateLogin.Location = new System.Drawing.Point(3, 54);
-            this.GunaCreateLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GunaCreateLogin.Name = "GunaCreateLogin";
-            this.GunaCreateLogin.PasswordChar = '\0';
-            this.GunaCreateLogin.PlaceholderText = "";
-            this.GunaCreateLogin.SelectedText = "";
-            this.GunaCreateLogin.Size = new System.Drawing.Size(301, 36);
-            this.GunaCreateLogin.TabIndex = 1;
-            this.GunaCreateLogin.Enter += new System.EventHandler(this.GunaCreateLogin_Enter);
-            this.GunaCreateLogin.Leave += new System.EventHandler(this.GunaCreateLogin_Leave);
+            this.GunaAuthorizationMenu.Controls.Add(this.GunaLoginButton);
+            this.GunaAuthorizationMenu.Controls.Add(this.GunaLoginLabel);
+            this.GunaAuthorizationMenu.Controls.Add(this.GunaAddUserButton);
+            this.GunaAuthorizationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GunaAuthorizationMenu.Location = new System.Drawing.Point(0, 0);
+            this.GunaAuthorizationMenu.Name = "GunaAuthorizationMenu";
+            this.GunaAuthorizationMenu.Size = new System.Drawing.Size(308, 198);
+            this.GunaAuthorizationMenu.TabIndex = 11;
+            // 
+            // GunaLoginButton
+            // 
+            this.GunaLoginButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaLoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaLoginButton.HoverState.ImageSize = new System.Drawing.Size(52, 52);
+            this.GunaLoginButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaLoginButton.Image")));
+            this.GunaLoginButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaLoginButton.ImageRotate = 0F;
+            this.GunaLoginButton.ImageSize = new System.Drawing.Size(52, 52);
+            this.GunaLoginButton.Location = new System.Drawing.Point(252, 141);
+            this.GunaLoginButton.Name = "GunaLoginButton";
+            this.GunaLoginButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.GunaLoginButton.Size = new System.Drawing.Size(52, 52);
+            this.GunaLoginButton.TabIndex = 3;
+            this.GunaLoginButton.Click += new System.EventHandler(this.GunaLoginButton_Click);
+            // 
+            // GunaLoginLabel
+            // 
+            this.GunaLoginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GunaLoginLabel.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GunaLoginLabel.ForeColor = System.Drawing.Color.White;
+            this.GunaLoginLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GunaLoginLabel.Location = new System.Drawing.Point(3, -4);
+            this.GunaLoginLabel.Name = "GunaLoginLabel";
+            this.GunaLoginLabel.Size = new System.Drawing.Size(301, 54);
+            this.GunaLoginLabel.TabIndex = 5;
+            this.GunaLoginLabel.Text = "Авторизация";
+            this.GunaLoginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GunaAddUserButton
+            // 
+            this.GunaAddUserButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaAddUserButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaAddUserButton.HoverState.ImageSize = new System.Drawing.Size(52, 52);
+            this.GunaAddUserButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaAddUserButton.Image")));
+            this.GunaAddUserButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaAddUserButton.ImageRotate = 0F;
+            this.GunaAddUserButton.ImageSize = new System.Drawing.Size(52, 52);
+            this.GunaAddUserButton.Location = new System.Drawing.Point(3, 141);
+            this.GunaAddUserButton.Name = "GunaAddUserButton";
+            this.GunaAddUserButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.GunaAddUserButton.Size = new System.Drawing.Size(52, 52);
+            this.GunaAddUserButton.TabIndex = 9;
+            this.GunaAddUserButton.Click += new System.EventHandler(this.GunaAddUserButton_Click);
+            // 
+            // GunaRegistationMenu
+            // 
+            this.GunaRegistationMenu.Controls.Add(this.GunaCreateAccountButton);
+            this.GunaRegistationMenu.Controls.Add(this.label2);
+            this.GunaRegistationMenu.Controls.Add(this.GunaBackToAuthorizationButton);
+            this.GunaRegistationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GunaRegistationMenu.Location = new System.Drawing.Point(0, 0);
+            this.GunaRegistationMenu.Name = "GunaRegistationMenu";
+            this.GunaRegistationMenu.Size = new System.Drawing.Size(308, 198);
+            this.GunaRegistationMenu.TabIndex = 12;
+            this.GunaRegistationMenu.Visible = false;
             // 
             // GunaCreateAccountButton
             // 
@@ -260,31 +386,6 @@
             this.label2.Text = "Регистрация";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GunaCreatePassword
-            // 
-            this.GunaCreatePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.GunaCreatePassword.BorderRadius = 5;
-            this.GunaCreatePassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.GunaCreatePassword.DefaultText = "Пароль";
-            this.GunaCreatePassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.GunaCreatePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.GunaCreatePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaCreatePassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaCreatePassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaCreatePassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GunaCreatePassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaCreatePassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaCreatePassword.IconLeft")));
-            this.GunaCreatePassword.Location = new System.Drawing.Point(3, 98);
-            this.GunaCreatePassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GunaCreatePassword.Name = "GunaCreatePassword";
-            this.GunaCreatePassword.PasswordChar = '\0';
-            this.GunaCreatePassword.PlaceholderText = "";
-            this.GunaCreatePassword.SelectedText = "";
-            this.GunaCreatePassword.Size = new System.Drawing.Size(301, 36);
-            this.GunaCreatePassword.TabIndex = 6;
-            this.GunaCreatePassword.Enter += new System.EventHandler(this.GunaCreatePassword_Enter);
-            this.GunaCreatePassword.Leave += new System.EventHandler(this.GunaCreatePassword_Leave);
-            // 
             // GunaBackToAuthorizationButton
             // 
             this.GunaBackToAuthorizationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -302,125 +403,17 @@
             this.GunaBackToAuthorizationButton.TabIndex = 9;
             this.GunaBackToAuthorizationButton.Click += new System.EventHandler(this.GunaBackToAuthorizationButton_Click);
             // 
-            // GunaAuthorizationMenu
-            // 
-            this.GunaAuthorizationMenu.Controls.Add(this.GunaLogin);
-            this.GunaAuthorizationMenu.Controls.Add(this.GunaLoginButton);
-            this.GunaAuthorizationMenu.Controls.Add(this.GunaLoginLabel);
-            this.GunaAuthorizationMenu.Controls.Add(this.GunaPassword);
-            this.GunaAuthorizationMenu.Controls.Add(this.GunaAddUserButton);
-            this.GunaAuthorizationMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GunaAuthorizationMenu.Location = new System.Drawing.Point(0, 0);
-            this.GunaAuthorizationMenu.Name = "GunaAuthorizationMenu";
-            this.GunaAuthorizationMenu.Size = new System.Drawing.Size(308, 198);
-            this.GunaAuthorizationMenu.TabIndex = 11;
-            this.GunaAuthorizationMenu.Visible = false;
-            // 
-            // GunaLogin
-            // 
-            this.GunaLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.GunaLogin.BorderRadius = 5;
-            this.GunaLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.GunaLogin.DefaultText = "Логин";
-            this.GunaLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.GunaLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.GunaLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GunaLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaLogin.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaLogin.IconLeft")));
-            this.GunaLogin.Location = new System.Drawing.Point(3, 54);
-            this.GunaLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GunaLogin.Name = "GunaLogin";
-            this.GunaLogin.PasswordChar = '\0';
-            this.GunaLogin.PlaceholderText = "";
-            this.GunaLogin.SelectedText = "";
-            this.GunaLogin.Size = new System.Drawing.Size(301, 36);
-            this.GunaLogin.TabIndex = 1;
-            this.GunaLogin.Enter += new System.EventHandler(this.GunaLogin_Enter);
-            this.GunaLogin.Leave += new System.EventHandler(this.GunaLogin_Leave);
-            // 
-            // GunaLoginButton
-            // 
-            this.GunaLoginButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.GunaLoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GunaLoginButton.HoverState.ImageSize = new System.Drawing.Size(52, 52);
-            this.GunaLoginButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaLoginButton.Image")));
-            this.GunaLoginButton.ImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaLoginButton.ImageRotate = 0F;
-            this.GunaLoginButton.ImageSize = new System.Drawing.Size(52, 52);
-            this.GunaLoginButton.Location = new System.Drawing.Point(252, 141);
-            this.GunaLoginButton.Name = "GunaLoginButton";
-            this.GunaLoginButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.GunaLoginButton.Size = new System.Drawing.Size(52, 52);
-            this.GunaLoginButton.TabIndex = 3;
-            this.GunaLoginButton.Click += new System.EventHandler(this.GunaLoginButton_Click);
-            // 
-            // GunaLoginLabel
-            // 
-            this.GunaLoginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GunaLoginLabel.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GunaLoginLabel.ForeColor = System.Drawing.Color.White;
-            this.GunaLoginLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GunaLoginLabel.Location = new System.Drawing.Point(3, -4);
-            this.GunaLoginLabel.Name = "GunaLoginLabel";
-            this.GunaLoginLabel.Size = new System.Drawing.Size(301, 54);
-            this.GunaLoginLabel.TabIndex = 5;
-            this.GunaLoginLabel.Text = "Авторизация";
-            this.GunaLoginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // GunaPassword
-            // 
-            this.GunaPassword.BorderRadius = 5;
-            this.GunaPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.GunaPassword.DefaultText = "Пароль";
-            this.GunaPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.GunaPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.GunaPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.GunaPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GunaPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.GunaPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("GunaPassword.IconLeft")));
-            this.GunaPassword.Location = new System.Drawing.Point(3, 98);
-            this.GunaPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GunaPassword.Name = "GunaPassword";
-            this.GunaPassword.PasswordChar = '\0';
-            this.GunaPassword.PlaceholderText = "";
-            this.GunaPassword.SelectedText = "";
-            this.GunaPassword.Size = new System.Drawing.Size(301, 36);
-            this.GunaPassword.TabIndex = 6;
-            this.GunaPassword.Enter += new System.EventHandler(this.GunaPassword_Enter);
-            this.GunaPassword.Leave += new System.EventHandler(this.GunaPassword_Leave);
-            // 
-            // GunaAddUserButton
-            // 
-            this.GunaAddUserButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.GunaAddUserButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GunaAddUserButton.HoverState.ImageSize = new System.Drawing.Size(52, 52);
-            this.GunaAddUserButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaAddUserButton.Image")));
-            this.GunaAddUserButton.ImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaAddUserButton.ImageRotate = 0F;
-            this.GunaAddUserButton.ImageSize = new System.Drawing.Size(52, 52);
-            this.GunaAddUserButton.Location = new System.Drawing.Point(3, 141);
-            this.GunaAddUserButton.Name = "GunaAddUserButton";
-            this.GunaAddUserButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.GunaAddUserButton.Size = new System.Drawing.Size(52, 52);
-            this.GunaAddUserButton.TabIndex = 9;
-            this.GunaAddUserButton.Click += new System.EventHandler(this.GunaAddUserButton_Click);
-            // 
             // guna2DateTimePicker1
             // 
             this.guna2DateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2DateTimePicker1.Animated = true;
             this.guna2DateTimePicker1.BorderRadius = 5;
             this.guna2DateTimePicker1.Checked = true;
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(49)))));
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.White;
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(905, 582);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(905, 1502);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -435,11 +428,12 @@
             this.GunaUpPanel.BackColor = System.Drawing.Color.Transparent;
             this.GunaUpPanel.BorderColor = System.Drawing.Color.Black;
             this.GunaUpPanel.BorderRadius = 5;
+            this.GunaUpPanel.Controls.Add(this.GunaLogoutButton);
             this.GunaUpPanel.Controls.Add(this.GunaWindowScaleButton);
-            this.GunaUpPanel.Controls.Add(this.guna2ImageButton3);
+            this.GunaUpPanel.Controls.Add(this.GunaHideButton);
             this.GunaUpPanel.Controls.Add(this.GunaCloseButton);
-            this.GunaUpPanel.Controls.Add(this.guna2ImageButton2);
-            this.GunaUpPanel.Controls.Add(this.guna2ImageButton1);
+            this.GunaUpPanel.Controls.Add(this.GunaPreviousButton);
+            this.GunaUpPanel.Controls.Add(this.GunaNextButton);
             this.GunaUpPanel.Controls.Add(this.GunaFavoriteButton);
             this.GunaUpPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(49)))));
             this.GunaUpPanel.Location = new System.Drawing.Point(216, 0);
@@ -450,6 +444,23 @@
             this.GunaUpPanel.Size = new System.Drawing.Size(1046, 49);
             this.GunaUpPanel.TabIndex = 7;
             this.GunaUpPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GunaUpPanel_MouseDown);
+            // 
+            // GunaLogoutButton
+            // 
+            this.GunaLogoutButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaLogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaLogoutButton.HoverState.ImageSize = new System.Drawing.Size(72, 72);
+            this.GunaLogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaLogoutButton.Image")));
+            this.GunaLogoutButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaLogoutButton.ImageRotate = 0F;
+            this.GunaLogoutButton.ImageSize = new System.Drawing.Size(72, 72);
+            this.GunaLogoutButton.Location = new System.Drawing.Point(195, 3);
+            this.GunaLogoutButton.Name = "GunaLogoutButton";
+            this.GunaLogoutButton.PressedState.ImageSize = new System.Drawing.Size(65, 65);
+            this.GunaLogoutButton.Size = new System.Drawing.Size(42, 42);
+            this.GunaLogoutButton.TabIndex = 31;
+            this.GunaLogoutButton.Visible = false;
+            this.GunaLogoutButton.Click += new System.EventHandler(this.GunaLogoutButton_Click);
             // 
             // GunaWindowScaleButton
             // 
@@ -472,24 +483,26 @@
             this.GunaWindowScaleButton.TabIndex = 29;
             this.GunaWindowScaleButton.Click += new System.EventHandler(this.GunaWindowScaleButton_Click);
             // 
-            // guna2ImageButton3
+            // GunaHideButton
             // 
-            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ImageButton3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton3.Image")));
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(51, 3);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.guna2ImageButton3.ShadowDecoration.BorderRadius = 2;
-            this.guna2ImageButton3.ShadowDecoration.Depth = 15;
-            this.guna2ImageButton3.Size = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton3.TabIndex = 28;
+            this.GunaHideButton.BackColor = System.Drawing.Color.Transparent;
+            this.GunaHideButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaHideButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaHideButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.GunaHideButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaHideButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaHideButton.Image")));
+            this.GunaHideButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaHideButton.ImageRotate = 0F;
+            this.GunaHideButton.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaHideButton.Location = new System.Drawing.Point(51, 3);
+            this.GunaHideButton.Name = "GunaHideButton";
+            this.GunaHideButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.GunaHideButton.ShadowDecoration.BorderRadius = 2;
+            this.GunaHideButton.ShadowDecoration.Depth = 15;
+            this.GunaHideButton.Size = new System.Drawing.Size(42, 42);
+            this.GunaHideButton.TabIndex = 28;
+            this.GunaHideButton.Visible = false;
+            this.GunaHideButton.Click += new System.EventHandler(this.GunaHideButton_Click);
             // 
             // GunaCloseButton
             // 
@@ -511,48 +524,51 @@
             this.GunaCloseButton.TabIndex = 27;
             this.GunaCloseButton.Click += new System.EventHandler(this.GunaCloseButton_Click);
             // 
-            // guna2ImageButton2
+            // GunaPreviousButton
             // 
-            this.guna2ImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ImageButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(99, 3);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.guna2ImageButton2.ShadowDecoration.BorderRadius = 2;
-            this.guna2ImageButton2.ShadowDecoration.Depth = 15;
-            this.guna2ImageButton2.Size = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.TabIndex = 26;
+            this.GunaPreviousButton.BackColor = System.Drawing.Color.Transparent;
+            this.GunaPreviousButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaPreviousButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaPreviousButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.GunaPreviousButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaPreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaPreviousButton.Image")));
+            this.GunaPreviousButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaPreviousButton.ImageRotate = 0F;
+            this.GunaPreviousButton.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaPreviousButton.Location = new System.Drawing.Point(99, 3);
+            this.GunaPreviousButton.Name = "GunaPreviousButton";
+            this.GunaPreviousButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.GunaPreviousButton.ShadowDecoration.BorderRadius = 2;
+            this.GunaPreviousButton.ShadowDecoration.Depth = 15;
+            this.GunaPreviousButton.Size = new System.Drawing.Size(42, 42);
+            this.GunaPreviousButton.TabIndex = 26;
+            this.GunaPreviousButton.Visible = false;
+            this.GunaPreviousButton.Click += new System.EventHandler(this.GunaPreviousButton_Click);
             // 
-            // guna2ImageButton1
+            // GunaNextButton
             // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ImageButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(147, 3);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.guna2ImageButton1.ShadowDecoration.BorderRadius = 2;
-            this.guna2ImageButton1.ShadowDecoration.Depth = 15;
-            this.guna2ImageButton1.Size = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.TabIndex = 25;
+            this.GunaNextButton.BackColor = System.Drawing.Color.Transparent;
+            this.GunaNextButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.GunaNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GunaNextButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.GunaNextButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaNextButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaNextButton.Image")));
+            this.GunaNextButton.ImageOffset = new System.Drawing.Point(0, 0);
+            this.GunaNextButton.ImageRotate = 0F;
+            this.GunaNextButton.ImageSize = new System.Drawing.Size(42, 42);
+            this.GunaNextButton.Location = new System.Drawing.Point(147, 3);
+            this.GunaNextButton.Name = "GunaNextButton";
+            this.GunaNextButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
+            this.GunaNextButton.ShadowDecoration.BorderRadius = 2;
+            this.GunaNextButton.ShadowDecoration.Depth = 15;
+            this.GunaNextButton.Size = new System.Drawing.Size(42, 42);
+            this.GunaNextButton.TabIndex = 25;
+            this.GunaNextButton.Visible = false;
+            this.GunaNextButton.Click += new System.EventHandler(this.GunaNextButton_Click);
             // 
             // GunaFavoriteButton
             // 
             this.GunaFavoriteButton.BackColor = System.Drawing.Color.Transparent;
-            this.GunaFavoriteButton.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.GunaFavoriteButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
             this.GunaFavoriteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GunaFavoriteButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
@@ -562,11 +578,13 @@
             this.GunaFavoriteButton.ImageSize = new System.Drawing.Size(42, 42);
             this.GunaFavoriteButton.Location = new System.Drawing.Point(3, 3);
             this.GunaFavoriteButton.Name = "GunaFavoriteButton";
+            this.GunaFavoriteButton.PressedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.GunaFavoriteButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
             this.GunaFavoriteButton.ShadowDecoration.BorderRadius = 2;
             this.GunaFavoriteButton.ShadowDecoration.Depth = 15;
             this.GunaFavoriteButton.Size = new System.Drawing.Size(42, 42);
             this.GunaFavoriteButton.TabIndex = 24;
+            this.GunaFavoriteButton.Visible = false;
             this.GunaFavoriteButton.Click += new System.EventHandler(this.GunaFavoriteButton_Click);
             // 
             // LeftBar
@@ -577,7 +595,7 @@
             this.LeftBar.BorderRadius = 5;
             this.LeftBar.Controls.Add(this.label1);
             this.LeftBar.Controls.Add(this.GunaSearchBar);
-            this.LeftBar.Controls.Add(this.TitleList);
+            this.LeftBar.Controls.Add(this.GunaTitleList);
             this.LeftBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(49)))));
             this.LeftBar.Location = new System.Drawing.Point(0, 0);
             this.LeftBar.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -598,17 +616,6 @@
             this.GunaColorTransition.StartColor = System.Drawing.Color.Black;
             this.GunaColorTransition.ValueChanged += new System.EventHandler(this.GunaColorTransition_ValueChanged);
             // 
-            // qvScrollBar1
-            // 
-            this.qvScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.qvScrollBar1.BackColor = System.Drawing.Color.Transparent;
-            this.qvScrollBar1.ContentContainer = this.TitleList;
-            this.qvScrollBar1.Location = new System.Drawing.Point(183, 3);
-            this.qvScrollBar1.Name = "qvScrollBar1";
-            this.qvScrollBar1.Size = new System.Drawing.Size(17, 557);
-            this.qvScrollBar1.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -625,11 +632,12 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "C# Manual";
-            this.TitleList.ResumeLayout(false);
+            this.GunaTitleList.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
+            this.GunaInfoLabelPanel.ResumeLayout(false);
             this.GunaLoginMenu.ResumeLayout(false);
-            this.GunaRegistationMenu.ResumeLayout(false);
             this.GunaAuthorizationMenu.ResumeLayout(false);
+            this.GunaRegistationMenu.ResumeLayout(false);
             this.GunaUpPanel.ResumeLayout(false);
             this.LeftBar.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -641,10 +649,10 @@
         private Guna.UI2.WinForms.Guna2Panel GunaUpPanel;
         private Guna.UI2.WinForms.Guna2ImageButton GunaFavoriteButton;
         private Guna.UI2.WinForms.Guna2TextBox GunaSearchBar;
-        private Guna.UI2.WinForms.Guna2Panel TitleList;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private QVScrollBar qvScrollBar1;
+        private Guna.UI2.WinForms.Guna2Panel GunaTitleList;
+        private Guna.UI2.WinForms.Guna2ImageButton GunaPreviousButton;
+        private Guna.UI2.WinForms.Guna2ImageButton GunaNextButton;
+        private QVScrollBar TitleListScrollbar;
         private Guna.UI2.WinForms.Guna2ImageButton GunaCloseButton;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2Panel LeftBar;
@@ -657,16 +665,17 @@
         private Guna.UI2.WinForms.Guna2ImageButton GunaAddUserButton;
         private Guna.UI2.WinForms.Guna2Panel GunaAuthorizationMenu;
         private Guna.UI2.WinForms.Guna2Panel GunaRegistationMenu;
-        private Guna.UI2.WinForms.Guna2TextBox GunaCreateLogin;
         private Guna.UI2.WinForms.Guna2ImageButton GunaCreateAccountButton;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox GunaCreatePassword;
         private Guna.UI2.WinForms.Guna2ImageButton GunaBackToAuthorizationButton;
         private Guna.UI2.WinForms.Guna2HtmlLabel GunaInfoLabel;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Guna.UI2.WinForms.Guna2ImageButton GunaHideButton;
         private Guna.UI2.WinForms.Guna2ImageButton GunaWindowScaleButton;
         private Guna.UI2.WinForms.Guna2ColorTransition GunaColorTransition;
         private Guna.UI2.WinForms.Guna2HtmlLabel GunaErrorLabel;
+        private Guna.UI2.WinForms.Guna2ImageButton GunaLogoutButton;
+        private QVScrollBar InfoLabelScrollbar;
+        private Guna.UI2.WinForms.Guna2Panel GunaInfoLabelPanel;
     }
 }
 

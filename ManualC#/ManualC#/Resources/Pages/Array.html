@@ -3,120 +3,140 @@
 <meta charset="UTF-8">
 
 <head>
-<style>
-table, th, td {
-  border:1px solid gray;
-}
-th{
-  width:30px;
-  text-align:right;
-  background-color:#90EE90;
-}
-td{
-  text-align:left;
-  padding-left: 10px;
-}
+    <style>
+        table, th, td {
+            border: 1px solid gray;
+        }
 
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
+        th {
+            width: 30px;
+            text-align: right;
+            background-color: #333333;
+        }
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-.button1:hover{
-  background-color: #4CAF50;
-  color: white;
-}
+        td {
+            text-align: left;
+            padding-left: 10px;
+        }
 
-hr.solid {
-  margin-top: -20px;
-  border-top: 3px solid #bbb;
-}
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
 
-keyword{
-  color:#7dbdff;
-}
-</style>
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+            .button1:hover {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        hr.solid {
+            margin-top: -20px;
+            border-top: 1px solid #bbb;
+        }
+
+        keyword {
+            color: #7dbdff;
+        }
+    </style>
 </head>
 
 <body>
+    <h1 style="margin-top: -20px;">Массивы</h1>
+    <hr class="solid">
 
-<h1>Массивы</h1> 
-<hr class="solid">
+    Массив представляет набор однотипных данных. Объявление массива похоже на объявление переменной за тем исключением, что после указания типа ставятся квадратные скобки:
 
-Массив представляет набор однотипных данных. Объявление массива похоже на объявление переменной за тем исключением, что после указания типа ставятся квадратные скобки:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td>тип_переменной[] название_массива;</td>
+        </tr>
+    </table>
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>тип_переменной[] название_массива;</td>
-  </tr>
-</table>
+    <br></br>
+    Например, определим массив целых чисел:
 
-<br></br>
-Например, определим массив целых чисел:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>int[]</keyword> numbers;</td>
+        </tr>
+    </table>
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>int[] numbers;</td>
-  </tr>
-</table>
+    <br></br>
+    После определения переменной массива мы можем присвоить ей определенное значение:
 
-<br></br>
-После определения переменной массива мы можем присвоить ей определенное значение:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>int[]</keyword> nums = new int[4];</td>
+        </tr>
+    </table>
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>int[] nums = new int[4];</td>
-  </tr>
-</table>
+    <br></br>
+    Здесь вначале мы объявили массив nums, который будет хранить данные типа int. Далее используя операцию new, мы выделили память для 4 элементов массива: new int[4]. Число 4 еще называется длиной массива. При таком определении все элементы получают значение по умолчанию, которое предусмотренно для их типа. Для типа int значение по умолчанию - 0.
+    <br></br>
+    Также мы сразу можем указать значения для этих элементов:
 
-<br></br>
-Здесь вначале мы объявили массив nums, который будет хранить данные типа int. Далее используя операцию new, мы выделили память для 4 элементов массива: new int[4]. Число 4 еще называется длиной массива. При таком определении все элементы получают значение по умолчанию, которое предусмотренно для их типа. Для типа int значение по умолчанию - 0.
-<br></br>
-Также мы сразу можем указать значения для этих элементов:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>int[]</keyword> nums2 = new int[4] { 1, 2, 3, 5 };</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td><keyword>int[]</keyword> nums3 = new int[] { 1, 2, 3, 5 };</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td><keyword>int[]</keyword> nums4 = new[] { 1, 2, 3, 5 };</td>
+        </tr>
+    </table>
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td><keyword>int[]</keyword> nums2 = new int[4] { 1, 2, 3, 5 };</td>
-  </tr>
-  <tr>
-    <th>2</th>
-    <td>int[] nums3 = new int[] { 1, 2, 3, 5 };</td>
-  </tr>
-  <tr>
-    <th>3</th>
-    <td>int[] nums4 = new[] { 1, 2, 3, 5 };</td>
-  </tr>
-</table>
+    Все перечисленные выше способы будут равноценны.
+    <br></br>
 
-Все перечисленные выше способы будут равноценны.
-<br></br>
+    Подобным образом можно определять массивы и других типов, например, массив значений типа string:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>string[]</keyword> people = { "Tom", "Sam", "Bob" };</td>
+        </tr>
 
-Подобным образом можно определять массивы и других типов, например, массив значений типа string:
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>string[] people = { "Tom", "Sam", "Bob" };</td>
-  </tr>
+    </table>
 
-</table>
+    Подобным образом можно определять массивы и других типов, например, массив значений типа string:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>string[]</keyword> people = { "Tom", "Sam", "Bob" };</td>
+        </tr>
+
+    </table>
+
+    Подобным образом можно определять массивы и других типов, например, массив значений типа string:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>string[]</keyword> people = { "Tom", "Sam", "Bob" };</td>
+        </tr>
+
+    </table>
 
 </body>
 </html>

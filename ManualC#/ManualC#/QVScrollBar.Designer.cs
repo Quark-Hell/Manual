@@ -53,8 +53,6 @@
             this.Toggle.Name = "Toggle";
             this.Toggle.Size = new System.Drawing.Size(26, 142);
             this.Toggle.TabIndex = 3;
-            this.Toggle.Text = "2";
-            this.Toggle.Enter += new System.EventHandler(this.Toggle_Enter);
             this.Toggle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toggle_MouseDown);
             this.Toggle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toggle_MouseMove);
             // 

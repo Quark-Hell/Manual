@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace ManualC_
 {
     public partial class TitleButtonPrefab : UserControl
     {
+        public QVScrollBar Scrollbar;
         public Guna2HtmlLabel Label;
         public string Path;
 
@@ -39,7 +41,17 @@ namespace ManualC_
 
         private void GunaTitleButton_Click(object sender, EventArgs e)
         {
-            //Browser.Navigate(new Uri(Path));
+            using (StreamReader reader = new StreamReader(Path))
+            {
+                if (Label != null)
+                {
+                    string text = reader.ReadToEnd();
+                    Label.Text = text;
+
+                    Scrollbar.ContentContainer.Visible = true;
+                    Scrollbar.SetScrollbarParameters();
+                }
+            }
         }
     }
 }

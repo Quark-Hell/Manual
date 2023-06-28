@@ -37,10 +37,12 @@ namespace ManualC_
 
         public List<QVScrollBarElement> Elements { get; private set; } = new List<QVScrollBarElement>();
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public float Sensitive = 1;
+
 
         public int PaddingUp { get; private set; } = 3;
         public int PaddingDown { get; private set; } = 3;
-
 
         private Point lastMousePos;
         private Point currentMousePos;
@@ -57,8 +59,6 @@ namespace ManualC_
                 ControlStyles.UserPaint |
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.DoubleBuffer, true);
-
-            this.MouseWheel += new MouseEventHandler(Panel_MouseWheel);
         }
 
         private void QVScrollBar_ParentChanged(object sender, EventArgs e)
@@ -73,7 +73,28 @@ namespace ManualC_
             int last = Elements.Count - 1;
             int different = 0;
 
-            if (Elements.Count >= 2)
+            if (Elements.Count == 1)
+            {
+                //Calculate occupies area size by elements
+                different =
+                    (Elements[0].ControlInstance.Height + PaddingDown)
+                    -
+                    (Elements[0].StartYPosition);
+
+                if (different > Panel.Height)
+                {
+                    contentSuperiority = (float)different / (float)Panel.Height;
+                    Toggle.Height = (int)((float)Panel.Height / contentSuperiority);
+                    isScrollable = true;
+                }
+                else
+                {
+                    //Toggle occupies the entire area
+                    Toggle.Size = new Size(Panel.Width, Panel.Height);
+                    isScrollable = false;
+                }
+            }
+            else if (Elements.Count >= 2)
             {
                 //Calculate occupies area size by elements
                 different =
@@ -90,7 +111,6 @@ namespace ManualC_
                 else
                 {
                     //Toggle occupies the entire area
-                    Toggle.Location = new Point(Toggle.Location.X, 0);
                     Toggle.Size = new Size(Panel.Width, Panel.Height);
                     isScrollable = false;
                 }
@@ -98,10 +118,12 @@ namespace ManualC_
             else
             {
                 //Toggle occupies the entire area
-                Toggle.Location = new Point(Toggle.Location.X, 0);
                 Toggle.Size = new Size(Panel.Width, Panel.Height);
                 isScrollable = false;
             }
+
+            Toggle.Location = new Point(Toggle.Location.X, 0);
+            ContentSet(true);
         }
 
         public void AddControl(Control controlInstance)
@@ -233,7 +255,7 @@ namespace ManualC_
             }
         }
 
-        private void Panel_MouseWheel(object sender, MouseEventArgs e)
+        public void Panel_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta > 0)
             {
@@ -243,6 +265,8 @@ namespace ManualC_
             {
                 
             }
+            ContentMove((int)(e.Delta * Sensitive));
+
             Toggle.Invalidate();
             Toggle.Refresh();
         }
@@ -295,11 +319,6 @@ namespace ManualC_
                 contentContainer.Refresh();
                 Invalidate(contentContainer.DisplayRectangle);
             }
-        }
-
-        private void Toggle_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
