@@ -31,12 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.GunaTitleList = new Guna.UI2.WinForms.Guna2Panel();
-            this.TitleListScrollbar = new ManualC_.QVScrollBar();
             this.GunaSearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.GunaInfoLabelPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.InfoLabelScrollbar = new ManualC_.QVScrollBar();
             this.GunaInfoLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.GunaLoginMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.GunaPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,11 +54,11 @@
             this.GunaWindowScaleButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaHideButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaCloseButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.GunaPreviousButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.GunaNextButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GunaFavoriteButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.LeftBar = new Guna.UI2.WinForms.Guna2Panel();
             this.GunaColorTransition = new Guna.UI2.WinForms.Guna2ColorTransition(this.components);
+            this.InfoLabelScrollbar = new ManualC_.QVScrollBar();
+            this.TitleListScrollbar = new ManualC_.QVScrollBar();
             this.GunaTitleList.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.GunaInfoLabelPanel.SuspendLayout();
@@ -85,17 +83,6 @@
             this.GunaTitleList.ShadowDecoration.Enabled = true;
             this.GunaTitleList.Size = new System.Drawing.Size(203, 563);
             this.GunaTitleList.TabIndex = 10;
-            // 
-            // TitleListScrollbar
-            // 
-            this.TitleListScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TitleListScrollbar.BackColor = System.Drawing.Color.Transparent;
-            this.TitleListScrollbar.ContentContainer = this.GunaTitleList;
-            this.TitleListScrollbar.Location = new System.Drawing.Point(183, 3);
-            this.TitleListScrollbar.Name = "TitleListScrollbar";
-            this.TitleListScrollbar.Size = new System.Drawing.Size(17, 557);
-            this.TitleListScrollbar.TabIndex = 0;
             // 
             // GunaSearchBar
             // 
@@ -175,17 +162,6 @@
             this.GunaInfoLabelPanel.TabIndex = 5;
             this.GunaInfoLabelPanel.Visible = false;
             // 
-            // InfoLabelScrollbar
-            // 
-            this.InfoLabelScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.InfoLabelScrollbar.BackColor = System.Drawing.Color.Transparent;
-            this.InfoLabelScrollbar.ContentContainer = this.GunaInfoLabelPanel;
-            this.InfoLabelScrollbar.Location = new System.Drawing.Point(1029, 3);
-            this.InfoLabelScrollbar.Name = "InfoLabelScrollbar";
-            this.InfoLabelScrollbar.Size = new System.Drawing.Size(17, 615);
-            this.InfoLabelScrollbar.TabIndex = 4;
-            // 
             // GunaInfoLabel
             // 
             this.GunaInfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -204,6 +180,7 @@
             // 
             // GunaLoginMenu
             // 
+            this.GunaLoginMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GunaLoginMenu.BackColor = System.Drawing.Color.Transparent;
             this.GunaLoginMenu.BorderRadius = 5;
             this.GunaLoginMenu.Controls.Add(this.GunaPassword);
@@ -432,8 +409,6 @@
             this.GunaUpPanel.Controls.Add(this.GunaWindowScaleButton);
             this.GunaUpPanel.Controls.Add(this.GunaHideButton);
             this.GunaUpPanel.Controls.Add(this.GunaCloseButton);
-            this.GunaUpPanel.Controls.Add(this.GunaPreviousButton);
-            this.GunaUpPanel.Controls.Add(this.GunaNextButton);
             this.GunaUpPanel.Controls.Add(this.GunaFavoriteButton);
             this.GunaUpPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(49)))));
             this.GunaUpPanel.Location = new System.Drawing.Point(216, 0);
@@ -454,7 +429,7 @@
             this.GunaLogoutButton.ImageOffset = new System.Drawing.Point(0, 0);
             this.GunaLogoutButton.ImageRotate = 0F;
             this.GunaLogoutButton.ImageSize = new System.Drawing.Size(72, 72);
-            this.GunaLogoutButton.Location = new System.Drawing.Point(195, 3);
+            this.GunaLogoutButton.Location = new System.Drawing.Point(99, 4);
             this.GunaLogoutButton.Name = "GunaLogoutButton";
             this.GunaLogoutButton.PressedState.ImageSize = new System.Drawing.Size(65, 65);
             this.GunaLogoutButton.Size = new System.Drawing.Size(42, 42);
@@ -489,6 +464,7 @@
             this.GunaHideButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
             this.GunaHideButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GunaHideButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.GunaHideButton.Enabled = false;
             this.GunaHideButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
             this.GunaHideButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaHideButton.Image")));
             this.GunaHideButton.ImageOffset = new System.Drawing.Point(0, 0);
@@ -524,48 +500,6 @@
             this.GunaCloseButton.TabIndex = 27;
             this.GunaCloseButton.Click += new System.EventHandler(this.GunaCloseButton_Click);
             // 
-            // GunaPreviousButton
-            // 
-            this.GunaPreviousButton.BackColor = System.Drawing.Color.Transparent;
-            this.GunaPreviousButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.GunaPreviousButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GunaPreviousButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.GunaPreviousButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.GunaPreviousButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaPreviousButton.Image")));
-            this.GunaPreviousButton.ImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaPreviousButton.ImageRotate = 0F;
-            this.GunaPreviousButton.ImageSize = new System.Drawing.Size(42, 42);
-            this.GunaPreviousButton.Location = new System.Drawing.Point(99, 3);
-            this.GunaPreviousButton.Name = "GunaPreviousButton";
-            this.GunaPreviousButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.GunaPreviousButton.ShadowDecoration.BorderRadius = 2;
-            this.GunaPreviousButton.ShadowDecoration.Depth = 15;
-            this.GunaPreviousButton.Size = new System.Drawing.Size(42, 42);
-            this.GunaPreviousButton.TabIndex = 26;
-            this.GunaPreviousButton.Visible = false;
-            this.GunaPreviousButton.Click += new System.EventHandler(this.GunaPreviousButton_Click);
-            // 
-            // GunaNextButton
-            // 
-            this.GunaNextButton.BackColor = System.Drawing.Color.Transparent;
-            this.GunaNextButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
-            this.GunaNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GunaNextButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.GunaNextButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
-            this.GunaNextButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaNextButton.Image")));
-            this.GunaNextButton.ImageOffset = new System.Drawing.Point(0, 0);
-            this.GunaNextButton.ImageRotate = 0F;
-            this.GunaNextButton.ImageSize = new System.Drawing.Size(42, 42);
-            this.GunaNextButton.Location = new System.Drawing.Point(147, 3);
-            this.GunaNextButton.Name = "GunaNextButton";
-            this.GunaNextButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
-            this.GunaNextButton.ShadowDecoration.BorderRadius = 2;
-            this.GunaNextButton.ShadowDecoration.Depth = 15;
-            this.GunaNextButton.Size = new System.Drawing.Size(42, 42);
-            this.GunaNextButton.TabIndex = 25;
-            this.GunaNextButton.Visible = false;
-            this.GunaNextButton.Click += new System.EventHandler(this.GunaNextButton_Click);
-            // 
             // GunaFavoriteButton
             // 
             this.GunaFavoriteButton.BackColor = System.Drawing.Color.Transparent;
@@ -578,14 +512,13 @@
             this.GunaFavoriteButton.ImageSize = new System.Drawing.Size(42, 42);
             this.GunaFavoriteButton.Location = new System.Drawing.Point(3, 3);
             this.GunaFavoriteButton.Name = "GunaFavoriteButton";
-            this.GunaFavoriteButton.PressedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.GunaFavoriteButton.PressedState.ImageSize = new System.Drawing.Size(38, 38);
             this.GunaFavoriteButton.ShadowDecoration.BorderRadius = 2;
             this.GunaFavoriteButton.ShadowDecoration.Depth = 15;
             this.GunaFavoriteButton.Size = new System.Drawing.Size(42, 42);
             this.GunaFavoriteButton.TabIndex = 24;
             this.GunaFavoriteButton.Visible = false;
-            this.GunaFavoriteButton.Click += new System.EventHandler(this.GunaFavoriteButton_Click);
+            this.GunaFavoriteButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GunaFavoriteButton_MouseDown);
             // 
             // LeftBar
             // 
@@ -615,6 +548,28 @@
             this.GunaColorTransition.Interval = 1;
             this.GunaColorTransition.StartColor = System.Drawing.Color.Black;
             this.GunaColorTransition.ValueChanged += new System.EventHandler(this.GunaColorTransition_ValueChanged);
+            // 
+            // InfoLabelScrollbar
+            // 
+            this.InfoLabelScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoLabelScrollbar.BackColor = System.Drawing.Color.Transparent;
+            this.InfoLabelScrollbar.ContentContainer = this.GunaInfoLabelPanel;
+            this.InfoLabelScrollbar.Location = new System.Drawing.Point(1029, 3);
+            this.InfoLabelScrollbar.Name = "InfoLabelScrollbar";
+            this.InfoLabelScrollbar.Size = new System.Drawing.Size(17, 615);
+            this.InfoLabelScrollbar.TabIndex = 4;
+            // 
+            // TitleListScrollbar
+            // 
+            this.TitleListScrollbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TitleListScrollbar.BackColor = System.Drawing.Color.Transparent;
+            this.TitleListScrollbar.ContentContainer = this.GunaTitleList;
+            this.TitleListScrollbar.Location = new System.Drawing.Point(183, 3);
+            this.TitleListScrollbar.Name = "TitleListScrollbar";
+            this.TitleListScrollbar.Size = new System.Drawing.Size(17, 557);
+            this.TitleListScrollbar.TabIndex = 0;
             // 
             // Form1
             // 
@@ -650,8 +605,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton GunaFavoriteButton;
         private Guna.UI2.WinForms.Guna2TextBox GunaSearchBar;
         private Guna.UI2.WinForms.Guna2Panel GunaTitleList;
-        private Guna.UI2.WinForms.Guna2ImageButton GunaPreviousButton;
-        private Guna.UI2.WinForms.Guna2ImageButton GunaNextButton;
         private QVScrollBar TitleListScrollbar;
         private Guna.UI2.WinForms.Guna2ImageButton GunaCloseButton;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;

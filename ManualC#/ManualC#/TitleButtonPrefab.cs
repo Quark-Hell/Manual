@@ -15,12 +15,11 @@ namespace ManualC_
     public partial class TitleButtonPrefab : UserControl
     {
         public QVScrollBar Scrollbar;
-        public Guna2HtmlLabel Label;
-        public string Path;
+        public Guna2GradientButton Button { get; private set; }
 
         public string Text { get; private set; }
 
-        public TitleButtonPrefab(Guna2HtmlLabel label, string path)
+        public TitleButtonPrefab()
         {
             InitializeComponent();
 
@@ -29,29 +28,13 @@ namespace ManualC_
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.DoubleBuffer, true);
 
-            Label = label;
-            Path = path;
+            Button = GunaTitleButton;
         }
 
         public void SetText(string text)
         {
             Text = text;
             GunaTitleButton.Text = text;
-        }
-
-        private void GunaTitleButton_Click(object sender, EventArgs e)
-        {
-            using (StreamReader reader = new StreamReader(Path))
-            {
-                if (Label != null)
-                {
-                    string text = reader.ReadToEnd();
-                    Label.Text = text;
-
-                    Scrollbar.ContentContainer.Visible = true;
-                    Scrollbar.SetScrollbarParameters();
-                }
-            }
         }
     }
 }

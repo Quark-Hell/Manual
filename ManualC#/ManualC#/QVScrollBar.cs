@@ -40,7 +40,6 @@ namespace ManualC_
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public float Sensitive = 1;
 
-
         public int PaddingUp { get; private set; } = 3;
         public int PaddingDown { get; private set; } = 3;
 
@@ -63,10 +62,10 @@ namespace ManualC_
 
         private void QVScrollBar_ParentChanged(object sender, EventArgs e)
         {
-            SetScrollbarParameters();
+            ResetScrollbar();
         }
 
-        public void SetScrollbarParameters()
+        public void ResetScrollbar()
         {
             DrawButtons();
 
@@ -257,27 +256,46 @@ namespace ManualC_
 
         public void Panel_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0)
+            if (contentContainer != null)
             {
-               
-            }
-            else if (e.Delta < 0)
-            {
-                
-            }
-            ContentMove((int)(e.Delta * Sensitive));
+                if (Toggle.Location.Y + e.Delta * Sensitive >= 0)
+                {
+                    //To start location
+                    if (isScrollable)
+                    {
+                        ContentSet(true);
+                        Toggle.Location = new Point(Toggle.Location.X, 0);
+                    }
+                }
+                else if (Toggle.Location.Y + Toggle.Size.Height + e.Delta * Sensitive <= Panel.Size.Height)
+                {
+                    //To end location
+                    if (isScrollable)
+                    {
+                        ContentSet(false);
+                        Toggle.Location = new Point(Toggle.Location.X, Panel.Size.Height - Toggle.Size.Height);
+                    }
+                }
+                else
+                {
+                    Toggle.Location = new Point(Toggle.Location.X, Toggle.Location.Y + (int)(-e.Delta * Sensitive));
+                    ContentMove((int)(-e.Delta * Sensitive));
+                }
 
-            Toggle.Invalidate();
-            Toggle.Refresh();
+                //ContentMove((int)(e.Delta * Sensitive));
+
+                contentContainer.Invalidate();
+                contentContainer.Refresh();
+            }
         }
 
-        private void Toggle_MouseDown(object sender, MouseEventArgs e)
+        public void Toggle_MouseDown(object sender, MouseEventArgs e)
         {
             currentMousePos = System.Windows.Forms.Control.MousePosition;
             lastMousePos = System.Windows.Forms.Control.MousePosition;
         }
 
-        private void Toggle_MouseMove(object sender, MouseEventArgs e)
+        public void Toggle_MouseMove(object sender, MouseEventArgs e)
         {
             if ((Control.MouseButtons & MouseButtons.Left) != 0 && isScrollable)
             {

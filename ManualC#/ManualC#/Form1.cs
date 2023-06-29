@@ -14,9 +14,12 @@ namespace ManualC_
     public partial class Form1 : Form
     {
         List<Chapter> chapters = new List<Chapter>();
-        FavoriteInfo FavoritePagesInfo;
 
-        int CurrentPage = -1;
+        string OpenLoginFileName = "";
+        string OpenSaveFileName = "";
+        string CurrentPage = "";
+
+        bool isAuthorized = false;
 
         public Form1()
         {
@@ -28,8 +31,16 @@ namespace ManualC_
             GunaTitleList.MouseWheel += new MouseEventHandler(TitleListScrollbar.Panel_MouseWheel);
             GunaInfoLabelPanel.MouseWheel += new MouseEventHandler(InfoLabelScrollbar.Panel_MouseWheel);
 
-            InitScrollBar();
-            TitleListScrollbar.SetScrollbarParameters();
+            TitleListScrollbar.ResetScrollbar();
+
+            string pagesPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Pages\\";
+
+            chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "Array.html"));
+            chapters.Add(new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность", "произведение" }, pagesPath + "Array.html"));
+            chapters.Add(new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы", "многомерные", "двумерные" }, pagesPath + "Array.html"));
+            chapters.Add(new Chapter("Классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "Array.html"));
+
+            InfoLabelScrollbar.AddControl(GunaInfoLabel);
 
             this.SetStyle(
                 ControlStyles.UserPaint |
@@ -37,15 +48,6 @@ namespace ManualC_
                 ControlStyles.DoubleBuffer, true);
 
             SetDoubleBuffered(GunaTitleList);
-
-            GunaErrorLabel.Text = 
-                GunaErrorLabel.Text.Replace("warning.png", AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png");
-
-            //string path = @"D:\Text_Files\my_file.txt";
-            //using (StreamWriter sw = File.CreateText(path))
-            //{
-            //
-            //}
 
             base.OnLoad(e);
         }
@@ -71,42 +73,118 @@ namespace ManualC_
         /*======================================================================================*/
 
         #region App Logic
-        private void InitLogic()
+        public void SaveData(string path)
         {
-            string pagesPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Pages\\";
+            using (StreamWriter writer = new StreamWriter(path, false))
+            {
+                for (int i = 0; i < chapters.Count; i++)
+                {
+                    string t = chapters[i].ToString();
+                    string data = chapters[i].Name.ToString() + ":" + chapters[i].IsFavorite.ToString();
 
-            chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "Array.html"));
-            chapters.Add(new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность", "произведение" }, pagesPath + "Array.html"));
-            chapters.Add(new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы", "многомерные", "двумерные" }, pagesPath + "Array.html"));
-            chapters.Add(new Chapter("Классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "Array.html"));
+                    writer.WriteLine(data);
+                }
 
-            Dictionary<string, bool> fp = new Dictionary<string, bool>();
+                writer.Close();
+            }
+        }
+        public void LoadData(string path)
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                for (int i = 0; i < chapters.Count; i++)
+                {
+                    string str = "";
+                    string name;
+                    string data;
+
+                    str = reader.ReadLine();
+
+                    int t = str.IndexOf(":");
+                    name = str.Substring(0, t);
+                    data = str.Substring(t + 1, str.Length - t - 1);
+
+                    for (int j = 0; j < chapters.Count; j++)
+                    {
+                        if (name == chapters[i].Name)
+                        {
+                            chapters[i].SetFavorite(Boolean.Parse(data));
+                            break;
+                        }
+                    }
+                }
+                reader.Close();
+            }
+        }
+        public void ResetChaptersData()
+        {
             for (int i = 0; i < chapters.Count; i++)
             {
-                fp.Add(chapters[i].Name, false);
+                chapters[i].SetFavorite(false);
             }
-            FavoritePagesInfo = new FavoriteInfo(fp);
-
-            InitScrollBar();
-            TitleListScrollbar.SetScrollbarParameters();
-
-            InfoLabelScrollbar.AddControl(GunaInfoLabel);
-            InfoLabelScrollbar.SetScrollbarParameters();
         }
 
-        private void InitScrollBar()
+        private void InitLogic()
+        {
+            LoadData(OpenSaveFileName);
+
+            InitTitleList();
+            TitleListScrollbar.ResetScrollbar();
+            InfoLabelScrollbar.ResetScrollbar();
+        }
+
+        public void TitleButton_Click(string buttonName, string pathToFile) 
+        {
+            using (StreamReader reader = new StreamReader(pathToFile))
+            {
+                CurrentPage = buttonName;
+
+                for (int i = 0; i < chapters.Count; i++)
+                {
+                    if (CurrentPage == chapters[i].Name)
+                    {
+                        if (chapters[i].IsFavorite)
+                        {
+                            GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Favorite.png");
+                        }
+                        else
+                        {
+                            GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+                        }
+                        break;
+                    }
+                }
+
+
+                GunaHideButton.Enabled = true;
+
+                string text = reader.ReadToEnd();
+                GunaInfoLabel.Text = text;
+
+                InfoLabelScrollbar.ContentContainer.Visible = true;
+                InfoLabelScrollbar.ResetScrollbar();
+            }
+        }
+
+        private void InitTitleList()
         {
             for (int i = 0; i < chapters.Count; i++)
             {
-                TitleButtonPrefab button = new TitleButtonPrefab(GunaInfoLabel, chapters[i].PathToFile);
+                TitleButtonPrefab button = new TitleButtonPrefab();
                 button.Location = new Point(3, button.Location.Y);
                 button.SetText(chapters[i].Name);
 
-                button.Label = GunaInfoLabel;
-                button.Scrollbar = InfoLabelScrollbar;
+                string str = chapters[i].PathToFile;
+                button.Button.Click += (s, e) =>
+                {
+                    TitleButton_Click(button.Text,str);
+                };
 
                 TitleListScrollbar.AddControl(button);
             }
+
+            TitleListScrollbar.ReInitContent();
+            TitleListScrollbar.ResetScrollbar();
         }
 
         private List<string> SearchMatch(string searchWord)
@@ -134,130 +212,6 @@ namespace ManualC_
 
             return output;
         }
-        #endregion
-
-        /*======================================================================================*/
-        /*======================================================================================*/
-        /*======================================================================================*/
-
-        #region Up Panel
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        private void GunaUpPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void GunaCloseButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void GunaWindowScaleButton_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                GunaWindowScaleButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Normal.png");
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                GunaWindowScaleButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Maximized.png");
-            }
-        }
-
-        private void GunaNextButton_Click(object sender, EventArgs e)
-        {
-            CurrentPage++;
-            if (CurrentPage == chapters.Count)
-            {
-                GunaNextButton.Visible = false;
-            }
-        }
-
-        private void GunaPreviousButton_Click(object sender, EventArgs e)
-        {
-            CurrentPage--;
-            if (CurrentPage == 0)
-            {
-                GunaPreviousButton.Visible = false;
-            }
-        }
-
-        private void GunaHideButton_Click(object sender, EventArgs e)
-        {
-            GunaInfoLabelPanel.Visible = false;
-        }
-
-        private void GunaLogoutButton_Click(object sender, EventArgs e)
-        {
-            GunaInfoLabelPanel.Visible = false;
-            GunaLoginMenu.Visible = true;
-            CurrentPage = -1;
-        }
-        #endregion
-
-        /*======================================================================================*/
-        /*======================================================================================*/
-        /*======================================================================================*/
-
-        #region Login Menu
-        class LoginInfo
-        {
-            public string Login { get; private set; }
-            public string Password { get; private set; }
-
-            public void SetLogin(string login)
-            {
-                Login = login;
-            }
-            public void SetPassword(string password)
-            {
-                Password = password;
-            }
-        }
-
-        class FavoriteInfo
-        {
-            /// <summary>
-            /// string - name<br />
-            /// bool - isFavorite<br />
-            /// </summary>
-            public Dictionary<string, bool> FavoritePages { get; private set; } = new Dictionary<string, bool>();
-
-            public FavoriteInfo(Dictionary<string, bool> favoritePages)
-            {
-                FavoritePages = favoritePages;
-            }
-        }
-
-        private void LoginBarUpdate()
-        {
-            GunaLogin.ForeColor = Color.Gray;
-            GunaLogin.Text = "Логин";
-
-            GunaPassword.ForeColor = Color.Gray;
-            GunaPassword.Text = "Пароль";
-
-            GunaColorTransition.AutoTransition = false;
-            GunaLogin.BorderColor = Color.FromArgb(213, 218, 223);
-            GunaPassword.BorderColor = Color.FromArgb(213, 218, 223);
-
-            GunaPassword.PasswordChar = default;
-
-            GunaErrorLabel.Visible = false;
-        }
 
         private void GunaSearchBar_Leave(object sender, EventArgs e)
         {
@@ -270,6 +224,12 @@ namespace ManualC_
 
         private void GunaSearchBar_Enter(object sender, EventArgs e)
         {
+            if (!(GunaSearchBar.Text == "" || GunaSearchBar.Text == "Поиск"))
+            {
+                TitleListScrollbar.ClearContent();
+                InitTitleList();
+            }
+
             GunaSearchBar.ForeColor = Color.Black;
             GunaSearchBar.Text = "";
         }
@@ -296,31 +256,168 @@ namespace ManualC_
 
                     if (isHave == true)
                     {
-                        TitleButtonPrefab button = new TitleButtonPrefab(GunaInfoLabel, chapters[i].PathToFile);
+                        TitleButtonPrefab button = new TitleButtonPrefab();
                         button.Location = new Point(3, button.Location.Y);
                         button.SetText(chapters[i].Name);
+
+                        string str = chapters[i].PathToFile;
+                        button.Button.Click += (se, ev) =>
+                        {
+                            TitleButton_Click(button.Text, str);
+                        };
 
                         TitleListScrollbar.AddControl(button);
                     }
                 }
 
                 TitleListScrollbar.ReInitContent();
-                TitleListScrollbar.SetScrollbarParameters();
+                TitleListScrollbar.ResetScrollbar();
             }
             else
             {
                 TitleListScrollbar.ClearContent();
-                InitScrollBar();
-                TitleListScrollbar.SetScrollbarParameters();
+                InitTitleList();
+                TitleListScrollbar.ResetScrollbar();
+            }
+        }
+        #endregion
+
+        /*======================================================================================*/
+        /*======================================================================================*/
+        /*======================================================================================*/
+
+        #region Up Panel
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void GunaUpPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
-        private void GunaFavoriteButton_Click(object sender, EventArgs e)
+        private void GunaCloseButton_Click(object sender, EventArgs e)
         {
-            if (CurrentPage != -1)
+            GunaColorTransition.Dispose();
+            Environment.Exit(0);
+        }
+
+        private void GunaWindowScaleButton_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
             {
-                chapters[CurrentPage].SetFavorite(!chapters[CurrentPage].IsFavorite);
+                this.WindowState = FormWindowState.Maximized;
+                GunaWindowScaleButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Normal.png");
             }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                GunaWindowScaleButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Maximized.png");
+            }
+        }
+
+        private void GunaHideButton_Click(object sender, EventArgs e)
+        {
+            GunaHideButton.Enabled = false;
+            GunaInfoLabelPanel.Visible = false;
+
+            CurrentPage = "";
+            GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+        }
+
+        private void GunaLogoutButton_Click(object sender, EventArgs e)
+        {
+            GunaInfoLabelPanel.Visible = false;
+            GunaInfoLabel.Text = "";
+            InfoLabelScrollbar.ResetScrollbar();
+
+            GunaLoginMenu.Visible = true;
+
+            CurrentPage = "";
+            GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+
+            TitleListScrollbar.ClearContent();
+            TitleListScrollbar.ResetScrollbar();
+
+            GunaSearchBar.Text = "Поиск";
+            GunaSearchBar.ForeColor = Color.Gray;
+            GunaSearchBar.Enabled = false;
+
+            GunaHideButton.Enabled = false;
+
+            OpenLoginFileName = "";
+            OpenSaveFileName = "";
+
+            isAuthorized = false;
+        }
+
+        private void GunaFavoriteButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (CurrentPage == "") { return; }
+
+            for (int i = 0; i < chapters.Count; i++)
+            {
+                if (CurrentPage == chapters[i].Name)
+                {
+                    chapters[i].SetFavorite(!chapters[i].IsFavorite);
+                    if (chapters[i].IsFavorite)
+                    {
+                        GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Favorite.png");
+                    }
+                    else
+                    {
+                        GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+                    }
+                    SaveData(OpenSaveFileName);
+                    break;
+                }
+            }
+        }
+        #endregion
+
+        /*======================================================================================*/
+        /*======================================================================================*/
+        /*======================================================================================*/
+
+        #region Login Menu
+        class LoginInfo
+        {
+            public string Login { get; private set; }
+            public string Password { get; private set; }
+
+            public void SetLogin(string login)
+            {
+                Login = login;
+            }
+            public void SetPassword(string password)
+            {
+                Password = password;
+            }
+        }
+
+        private void LoginBarUpdate()
+        {
+            GunaLogin.ForeColor = Color.Gray;
+            GunaLogin.Text = "Логин";
+
+            GunaPassword.ForeColor = Color.Gray;
+            GunaPassword.Text = "Пароль";
+
+            GunaColorTransition.AutoTransition = false;
+            GunaLogin.BorderColor = Color.FromArgb(213, 218, 223);
+            GunaPassword.BorderColor = Color.FromArgb(213, 218, 223);
+
+            GunaPassword.PasswordChar = default;
+
+            GunaErrorLabel.Visible = false;
         }
 
         private void GunaBackToAuthorizationButton_Click(object sender, EventArgs e)
@@ -351,9 +448,28 @@ namespace ManualC_
 
             GunaFavoriteButton.Visible = true;
             GunaHideButton.Visible = true;
-            GunaPreviousButton.Visible = true;
-            GunaNextButton.Visible = true;
             GunaLogoutButton.Visible = true;
+            GunaSearchBar.Enabled = true;
+
+            GunaLogin.Text = "Логин";
+            GunaLogin.ForeColor = Color.Gray;
+
+            GunaPassword.Text = "Пароль";
+            GunaPassword.ForeColor = Color.Gray;
+            GunaPassword.PasswordChar = default;
+
+            isAuthorized = true;
+
+            ResetChaptersData();
+            if (File.Exists(OpenSaveFileName))
+            {
+                LoadData(OpenSaveFileName);
+            }
+            else
+            {
+                SaveData(OpenSaveFileName);
+            }
+
 
             //init app logic like title list
             InitLogic();
@@ -395,8 +511,8 @@ namespace ManualC_
 
             string json = JsonSerializer.Serialize(loginInfo);
             string scramb = Scrambler.EncodePasswordToBase64(json);
-            string fileName = Scrambler.EncodePasswordToBase64(JsonSerializer.Serialize(loginInfo.Login)) + ".txt";
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName;
+            string fileName = Scrambler.EncodePasswordToBase64(JsonSerializer.Serialize(loginInfo.Login));
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName + ".txt";
 
             if (File.Exists(path)) {
                 GunaErrorLabel.Text = "Такой аккаунт уже существует <img src=\"warning.png\" width=\"20\" height=\"20\">";
@@ -404,18 +520,21 @@ namespace ManualC_
                         GunaErrorLabel.Text.Replace("warning.png", AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png");
                 GunaErrorLabel.Visible = true;
                 GunaColorTransition.AutoTransition = true;
-                return; }
+                return; 
+            }
 
-            
+            //Create Login File
+            OpenLoginFileName = path;
             using (StreamWriter writer = new StreamWriter(path))
             {
                 writer.WriteLine(scramb);
+                writer.Close();
             }
-
-            //TODO: Launch the app by new user
+            //Create Save File
+            path = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName + "Data" + ".txt";
+            OpenSaveFileName = path;
 
             OpenApp();
-
             LoginBarUpdate();
         }
 
@@ -453,13 +572,13 @@ namespace ManualC_
 
             string json = JsonSerializer.Serialize(loginInfo);
             string scramb = Scrambler.EncodePasswordToBase64(json);
-            string fileName = Scrambler.EncodePasswordToBase64(JsonSerializer.Serialize(loginInfo.Login)) + ".txt";
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName;
+            string fileName = Scrambler.EncodePasswordToBase64(JsonSerializer.Serialize(loginInfo.Login));
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName + ".txt";
 
             if (!File.Exists(path))
             {
-                string file = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png";
-                GunaErrorLabel.Text = "Такого аккаунта не существует <img src=\"" + file + "\" width=\"20\" height=\"20\">";
+                string image = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png";
+                GunaErrorLabel.Text = "Такого аккаунта не существует <img src=\"" + image + "\" width=\"20\" height=\"20\">";
                 GunaErrorLabel.Visible = true;
                 GunaColorTransition.AutoTransition = true;
                 return;
@@ -469,14 +588,18 @@ namespace ManualC_
             {
                 if (scramb != reader.ReadLine())
                 {
-                    string file = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png";
-                    GunaErrorLabel.Text = "Такого аккаунта не существует <img src=\"" + file + "\" width=\"20\" height=\"20\">";
+                    string image = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\Warning.png";
+                    GunaErrorLabel.Text = "Такого аккаунта не существует <img src=\"" + image + "\" width=\"20\" height=\"20\">";
                     GunaErrorLabel.Visible = true;
                     GunaColorTransition.AutoTransition = true;
                     return;
                 }
+
+                reader.Close();
             }
 
+            OpenLoginFileName = path;
+            OpenSaveFileName = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Data\\" + fileName + "Data" + ".txt";
             OpenApp();
         }
         #endregion
@@ -485,7 +608,7 @@ namespace ManualC_
         /*======================================================================================*/
         /*======================================================================================*/
 
-        #region Guna EnterBar Logic
+        #region Guna Login and Password bar Logic
         private void GunaLogin_Enter(object sender, EventArgs e)
         {
             GunaLogin.ForeColor = Color.Black;
@@ -602,5 +725,10 @@ namespace ManualC_
             string result = new String(decoded_char);
             return result;
         }
+    }
+
+    public class SaveLoadData
+    {
+
     }
 }

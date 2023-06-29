@@ -52,7 +52,6 @@
             this.GunaTitleButton.Size = new System.Drawing.Size(178, 31);
             this.GunaTitleButton.TabIndex = 0;
             this.GunaTitleButton.Text = "guna2GradientButton1";
-            this.GunaTitleButton.Click += new System.EventHandler(this.GunaTitleButton_Click);
             // 
             // TitleButtonPrefab
             // 
