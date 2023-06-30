@@ -464,7 +464,6 @@
             this.GunaHideButton.CheckedState.ImageSize = new System.Drawing.Size(32, 32);
             this.GunaHideButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GunaHideButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.GunaHideButton.Enabled = false;
             this.GunaHideButton.HoverState.ImageSize = new System.Drawing.Size(42, 42);
             this.GunaHideButton.Image = ((System.Drawing.Image)(resources.GetObject("GunaHideButton.Image")));
             this.GunaHideButton.ImageOffset = new System.Drawing.Point(0, 0);

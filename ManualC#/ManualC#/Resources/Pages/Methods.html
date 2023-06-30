@@ -3,121 +3,130 @@
 <meta charset="UTF-8">
 
 <head>
-<style>
-table, th, td {
-  border:1px solid gray;
-}
-th{
-  width:30px;
-  text-align:right;
-  color: black;
-  background-color:#90EE90;
-}
-td{
-  text-align:left;
-  padding-left: 10px;
-}
+    <style>
+        table, th, td {
+            border: 1px solid gray;
+        }
 
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
+        th {
+            width: 30px;
+            text-align: right;
+            background-color: #333333;
+        }
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-.button1:hover{
-  background-color: #4CAF50;
-  color: white;
-}
+        td {
+            text-align: left;
+            padding-left: 10px;
+        }
 
-hr.solid {
-  margin-top: -10px;
-  border-top: 3px solid #bbb;
-}
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
 
-keyword{
-  color:blue;
-}
-</style>
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+            .button1:hover {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        hr.solid {
+            margin-top: -20px;
+            border-top: 1px solid #bbb;
+        }
+
+        keyword {
+            color: #7dbdff;
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>Массивы</h1> 
-<hr class="solid">
+    <h1>Методы</h1>
+    <hr class="solid">
 
-Массив представляет набор однотипных данных. Объявление массива похоже на объявление переменной за тем исключением, что после указания типа ставятся квадратные скобки:
+    Если переменные хранят некоторые значения, то методы содержат собой набор инструкций, которые выполняют определенные действия. По сути метод - это именованный блок кода, который выполняет некоторые действия.
+    <br></br>
+    Общее определение методов выглядит следующим образом:
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>тип_переменной[] название_массива;</td>
-  </tr>
-</table>
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td>[модификаторы] тип_возвращаемого_значения название_метода ([параметры])</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>{</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>&emsp;&emsp;// тело метода</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>}</td>
+        </tr>
+    </table>
 
-<br></br>
-Например, определим массив целых чисел:
+    <br></br>
+    Модификаторы и параметры необязательны.
+    <br></br>
+    Ранее мы уже использовали как минимум один метод - Console.WriteLine(), который выводит информацию на консоль. Теперь рассмотрим, как мы можем создавать свои методы.
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>int[] numbers;</td>
-  </tr>
-</table>
+    <h2>Определение метода</h2>
+    Определим один метод:
 
-<br></br>
-После определения переменной массива мы можем присвоить ей определенное значение:
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td><keyword>void</keyword> SayHello()</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>{</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>&emsp;&emsp;Console.WriteLine("Hello");</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>}</td>
+        </tr>
+    </table>
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>int[] nums = new int[4];</td>
-  </tr>
-</table>
+    <br></br>
+    Здесь определен метод SayHello, который выводит некоторое сообщение. К названиям методов предъявляются в принципе те же требования, что и к названиям переменных. Однако, как правило, названия методов начинаются с большой буквы.
 
-<br></br>
-Здесь вначале мы объявили массив nums, который будет хранить данные типа int. Далее используя операцию new, мы выделили память для 4 элементов массива: new int[4]. Число 4 еще называется длиной массива. При таком определении все элементы получают значение по умолчанию, которое предусмотренно для их типа. Для типа int значение по умолчанию - 0.
-<br></br>
-Также мы сразу можем указать значения для этих элементов:
+    <br></br>
+    Перед названием метода идет возвращаемый тип данных. Здесь это тип void, который указыает, что фактически ничего не возвращает, он просто производит некоторые действия.
 
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>int[] nums2 = new int[4] { 1, 2, 3, 5 };</td>
-  </tr>
-  <tr>
-    <th>2</th>
-    <td>int[] nums3 = new int[] { 1, 2, 3, 5 };</td>
-  </tr>
-  <tr>
-    <th>3</th>
-    <td>int[] nums4 = new[] { 1, 2, 3, 5 };</td>
-  </tr>
-</table>
+    <br></br>
+    После названия метода в скобках идет перечисление параметров. Но в данном случае скобки пустые, что означает, что метод не принимает никаких параметров.
 
-Все перечисленные выше способы будут равноценны.
-<br></br>
+    <br></br>
+    После списка параметров в круглых скобках идет блок кода, который представляет набор выполняемых методом инструкций. В данном случае блок метода SayHello содержит только одну инструкцию, которая выводит строку на консоль:
 
-Подобным образом можно определять массивы и других типов, например, массив значений типа string:
-<table style="width:100%">
-  <tr>
-    <th>1</th>
-    <td>string[] people = { "Tom", "Sam", "Bob" };</td>
-  </tr>
-
-</table>
+    <table style="width:100%">
+        <tr>
+            <th>1</th>
+            <td>Console.WriteLine("Hello");</td>
+        </tr>
+    </table>
 
 </body>
 </html>

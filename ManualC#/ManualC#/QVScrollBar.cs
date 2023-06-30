@@ -258,7 +258,7 @@ namespace ManualC_
         {
             if (contentContainer != null)
             {
-                if (Toggle.Location.Y + e.Delta * Sensitive >= 0)
+                if (Toggle.Location.Y - e.Delta * Sensitive <= 0)
                 {
                     //To start location
                     if (isScrollable)

@@ -35,10 +35,10 @@ namespace ManualC_
 
             string pagesPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\Pages\\";
 
-            chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "Array.html"));
+            chapters.Add(new Chapter("Методы", new string[] { "именованный", "блок", "метод", "вызов", "повторно" }, pagesPath + "Methods.html"));
             chapters.Add(new Chapter("Операторы", new string[] { "умножить", "делить", "сумма", "разность", "произведение" }, pagesPath + "Array.html"));
             chapters.Add(new Chapter("Массивы", new string[] { "однотипный", "набор", "данных", "индексы", "многомерные", "двумерные" }, pagesPath + "Array.html"));
-            chapters.Add(new Chapter("Классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "Array.html"));
+            chapters.Add(new Chapter("Классы", new string[] { "system", "half", "double", "boolean", "int", "char" }, pagesPath + "LibratyClasses.html"));
 
             InfoLabelScrollbar.AddControl(GunaInfoLabel);
 
@@ -326,11 +326,13 @@ namespace ManualC_
 
         private void GunaHideButton_Click(object sender, EventArgs e)
         {
-            GunaHideButton.Enabled = false;
-            GunaInfoLabelPanel.Visible = false;
+            if (CurrentPage != "")
+            {
+                GunaInfoLabelPanel.Visible = false;
 
-            CurrentPage = "";
-            GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+                CurrentPage = "";
+                GunaFavoriteButton.Image = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\Images\\NonFavorite.png");
+            }
         }
 
         private void GunaLogoutButton_Click(object sender, EventArgs e)
@@ -350,8 +352,6 @@ namespace ManualC_
             GunaSearchBar.Text = "Поиск";
             GunaSearchBar.ForeColor = Color.Gray;
             GunaSearchBar.Enabled = false;
-
-            GunaHideButton.Enabled = false;
 
             OpenLoginFileName = "";
             OpenSaveFileName = "";
