@@ -13,6 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,11 +28,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +52,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>photo_2023-02-07_03-31-33.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=3.3.3.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
@@ -292,6 +295,7 @@
     <EmbeddedResource Include="QVScrollBar.resx">
       <DependentUpon>QVScrollBar.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -312,9 +316,153 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="Resources\**">
+    <ContentWithTargetPath Include="Resources\Data\ImFkbWluIg==Data.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Resources\%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Resources\Data\\ImFkbWluIg==Data.txt</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Data\LogInfo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Data\\LogInfo.txt</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\AddUser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\AddUser.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Asset 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Asset 10.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Background.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\bookmark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\bookmark.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\cancel %281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\cancel %281%29.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\door.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\door.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\DownArrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\DownArrow.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\EnterLogin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\EnterLogin.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Favorite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Favorite.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\favourite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\favourite.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Heart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Heart.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\home.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\information-button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\information-button.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Left.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Log-in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Log-in.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\login-.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\login-.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Login.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Login.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Maximized.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Maximized.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Minimized.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Minimized.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\next.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\next.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Normal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Normal.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\padlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\padlock.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Print.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Print.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\profile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\profile.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Right.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\SearchIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\SearchIcon.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\SearchIcon_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\SearchIcon_1.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\sign-in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\sign-in.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\ToRegMenu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\ToRegMenu.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\UpArrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\UpArrow.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Images\Warning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Images\\Warning.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Pages\Array.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Pages\\Array.html</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Pages\Data Types.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Pages\\Data Types.html</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Pages\LibraryClasses.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Pages\\LibraryClasses.html</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="Resources\Pages\Methods.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Resources\Pages\\Methods.html</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -332,7 +480,8 @@
   <ItemGroup>
     <Content Include="Asset 1.png" />
     <Content Include="photo_2023-02-07_03-31-33.ico" />
-    <Content Include="Resources\Data\New Text Document.txt" />
+    <Content Include="Resources\Data\ImFkbWluIg==Data.txt" />
+    <Content Include="Resources\Data\LogInfo.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
