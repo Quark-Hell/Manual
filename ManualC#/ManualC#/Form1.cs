@@ -473,6 +473,8 @@ namespace ManualC_
             GunaLoginMenu.Visible = false;
             GunaOptionButtons.Visible = true;
 
+            GunaSearchBar.Enabled = true;
+
             GunaLogin.Text = "Логин";
             GunaLogin.ForeColor = Color.Gray;
 
