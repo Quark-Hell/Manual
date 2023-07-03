@@ -39,7 +39,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>photo_2023-02-07_03-31-33.ico</ApplicationIcon>
+    <ApplicationIcon>hashtag.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -479,6 +479,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asset 1.png" />
+    <Content Include="hashtag.ico" />
     <Content Include="photo_2023-02-07_03-31-33.ico" />
     <Content Include="Resources\Data\ImFkbWluIg==Data.txt" />
     <Content Include="Resources\Data\LogInfo.txt" />

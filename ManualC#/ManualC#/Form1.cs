@@ -705,30 +705,23 @@ namespace ManualC_
             Invalidate(guna2GradientPanel1.DisplayRectangle);
         }
 
+        #region Печать
         private void GunaPrintButton_Click(object sender, EventArgs e)
         {
             if (CurrentPage != "")
             {
-                for (int i = 0; i < Chapters.Count; i++)
+                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    if (CurrentPage == Chapters[i].Name)
-                    {
-                        using (StreamReader reader = new StreamReader(Chapters[i].PathToFile))
-                        {
-                            //string text = reader.ReadToEnd();
-                            //printDocument1.DocumentName = "document";
-                            //stringToPrint = reader.ReadToEnd();
-                            //
-                            //printDocument1.Print();
-
-                            reader.Close(); 
-                        }
-                        break;
-                    }
-                }
-            }
-           
+                    printDocument1.Print();
+                }         
+            }       
         }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(GunaInfoLabel.Text, new Font("Centuey Gothic", 12, FontStyle.Regular), Brushes.Blue, new PointF(130, 130));
+        }
+        #endregion
     }
 
     public class Chapter
